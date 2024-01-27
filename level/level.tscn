@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://2b3skik47boy"]
+[gd_scene load_steps=41 format=3 uid="uid://2b3skik47boy"]
 
 [ext_resource type="TileSet" uid="uid://bb5l2myi71tee" path="res://level/tile_set.tres" id="1_5l28f"]
 [ext_resource type="Script" path="res://level/Level.cs" id="1_mpqb3"]
@@ -20,9 +20,7 @@
 [ext_resource type="Resource" uid="uid://bfjv55l2tgg70" path="res://dialogues/death_6.tres" id="8_j0pv4"]
 [ext_resource type="Resource" uid="uid://bxt4c2fpsx0ao" path="res://dialogues/death_7.tres" id="9_l7qwg"]
 [ext_resource type="Resource" uid="uid://cpqe42jlyp6b4" path="res://dialogues/death_8.tres" id="10_1diik"]
-[ext_resource type="Texture2D" uid="uid://b716ela2egc0s" path="res://obstacles/falling_tile.png" id="10_wcl3y"]
 [ext_resource type="Resource" uid="uid://boh6e7x2opmrm" path="res://dialogues/death_9.tres" id="11_1mlsp"]
-[ext_resource type="Resource" uid="uid://n5xtx41rtcjx" path="res://dialogues/falling_ceiling.tres" id="11_2rfsy"]
 [ext_resource type="Script" path="res://level/NarratorDialogueTrigger.cs" id="11_ux0dh"]
 [ext_resource type="PackedScene" uid="uid://ch2d8wcs61tok" path="res://obstacles/falling_ceiling.tscn" id="12_4hcsf"]
 [ext_resource type="Resource" uid="uid://4w1lva1qdjcx" path="res://dialogues/death_10.tres" id="12_rolf2"]
@@ -170,32 +168,15 @@ position = Vector2(11340, 660)
 
 [node name="Falling Ceiling" parent="Falling Tiles" node_paths=PackedStringArray("_targetDistance") instance=ExtResource("12_4hcsf")]
 position = Vector2(14040, -600)
+fallGravity = 40.0
+maxFallVelocity = 120.0
 _targetDistance = NodePath("../Node2D")
 
-[node name="CollisionShape2D" parent="Falling Tiles/Falling Ceiling" index="0"]
-position = Vector2(240, 480)
-
-[node name="Sprite2D5" type="Sprite2D" parent="Falling Tiles/Falling Ceiling"]
-position = Vector2(300, -60)
-texture = ExtResource("10_wcl3y")
-
-[node name="Sprite2D6" type="Sprite2D" parent="Falling Tiles/Falling Ceiling"]
-position = Vector2(420, -60)
-texture = ExtResource("10_wcl3y")
-
-[node name="Sprite2D7" type="Sprite2D" parent="Falling Tiles/Falling Ceiling"]
-position = Vector2(540, -60)
-texture = ExtResource("10_wcl3y")
-
-[node name="Sprite2D8" type="Sprite2D" parent="Falling Tiles/Falling Ceiling"]
-position = Vector2(660, -60)
-texture = ExtResource("10_wcl3y")
-
-[node name="Kill Trigger" parent="Falling Tiles/Falling Ceiling" index="9"]
-deathDialogue = ExtResource("11_2rfsy")
-
-[node name="CollisionShape2D" parent="Falling Tiles/Falling Ceiling/Kill Trigger" index="0"]
-position = Vector2(240, -60)
+[node name="Falling Ceiling2" parent="Falling Tiles" node_paths=PackedStringArray("_targetDistance") instance=ExtResource("12_4hcsf")]
+position = Vector2(14520, -600)
+fallGravity = 40.0
+maxFallVelocity = 120.0
+_targetDistance = NodePath("../Node2D")
 
 [node name="Node2D" type="Node2D" parent="Falling Tiles"]
 position = Vector2(14280, 480)
@@ -326,14 +307,13 @@ follow_viewport_enabled = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 position = Vector2(-4620, 540)
-motion_scale = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
 texture = ExtResource("31_2gm68")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 position = Vector2(-4620, 540)
-motion_scale = Vector2(0.1, 0.1)
+motion_scale = Vector2(0.05, 0.05)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer2"]
 texture = ExtResource("32_x0kcd")
@@ -347,9 +327,7 @@ texture = ExtResource("33_cg1fe")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 position = Vector2(-4620, 540)
-motion_scale = Vector2(0.1, 0.1)
+motion_scale = Vector2(0.15, 0.15)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer4"]
 texture = ExtResource("34_fmjo3")
-
-[editable path="Falling Tiles/Falling Ceiling"]
