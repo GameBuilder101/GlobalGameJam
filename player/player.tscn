@@ -4,16 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://f3g876i4oqsc" path="res://icon.svg" id="2_lfnsa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24e5e"]
-size = Vector2(152, 230)
+size = Vector2(120, 180)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_c4u3k")
+speed = 800.0
+jumpVelocity = -1000.0
+coyoteTime = 0.15
+gravity = 2000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -114)
+position = Vector2(0, -90)
 shape = SubResource("RectangleShape2D_24e5e")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(0, -115)
-scale = Vector2(1.2, 1.8)
+position = Vector2(0, -89.945)
+scale = Vector2(0.935, 1.405)
 texture = ExtResource("2_lfnsa")

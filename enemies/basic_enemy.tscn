@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbyoyqsgm76b3"]
+
+[ext_resource type="Script" path="res://enemies/Enemy.cs" id="1_5varj"]
+[ext_resource type="Texture2D" uid="uid://wov6au0qj57u" path="res://enemies/basic_enemy.png" id="1_p6upc"]
+[ext_resource type="Texture2D" uid="uid://cerd14lyiwwbk" path="res://enemies/basic_enemy_dead.png" id="2_0k6sh"]
+[ext_resource type="Script" path="res://KillTrigger.cs" id="3_y4ev7"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mb7by"]
+a = Vector2(-60, 30)
+b = Vector2(60, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7l2g"]
+size = Vector2(60, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kyi6"]
+size = Vector2(120, 30)
+
+[node name="Basic Enemy" type="CharacterBody2D" node_paths=PackedStringArray("_aliveSprite", "_deadSprite", "_collision")]
+collision_layer = 4
+script = ExtResource("1_5varj")
+_aliveSprite = NodePath("Alive Sprite")
+_deadSprite = NodePath("Dead Sprite")
+_collision = [NodePath("CollisionShape2D"), NodePath("Die Trigger/CollisionShape2D"), NodePath("Kill Trigger/CollisionShape2D")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 30)
+shape = SubResource("SegmentShape2D_mb7by")
+
+[node name="Alive Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_p6upc")
+
+[node name="Dead Sprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_0k6sh")
+
+[node name="Die Trigger" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Die Trigger"]
+shape = SubResource("RectangleShape2D_w7l2g")
+
+[node name="Kill Trigger" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_y4ev7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Trigger"]
+position = Vector2(0, 45)
+shape = SubResource("RectangleShape2D_5kyi6")
+
+[connection signal="body_entered" from="Die Trigger" to="." method="_on_die_trigger_body_entered"]
+[connection signal="body_entered" from="Kill Trigger" to="." method="_on_kill_trigger_body_entered"]

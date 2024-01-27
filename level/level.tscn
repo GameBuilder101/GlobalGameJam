@@ -1,14 +1,65 @@
-[gd_scene load_steps=3 format=3 uid="uid://b120i1djkd6ov"]
+[gd_scene load_steps=9 format=3 uid="uid://b120i1djkd6ov"]
 
 [ext_resource type="TileSet" uid="uid://b1pjut54o3psb" path="res://level/tile_set.tres" id="1_5l28f"]
+[ext_resource type="Script" path="res://level/Level.cs" id="1_mpqb3"]
 [ext_resource type="PackedScene" uid="uid://ca8tblhg3tw5u" path="res://player/player.tscn" id="2_an21l"]
+[ext_resource type="Script" path="res://level/Camera.cs" id="3_ro6ko"]
+[ext_resource type="PackedScene" uid="uid://dlb5w33rqpxbs" path="res://obstacles/Spike.tscn" id="5_ms5fr"]
+[ext_resource type="Script" path="res://KillTrigger.cs" id="5_rxcub"]
+[ext_resource type="PackedScene" uid="uid://bbyoyqsgm76b3" path="res://enemies/basic_enemy.tscn" id="6_mer51"]
 
-[node name="Level" type="Node2D"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lprav"]
+
+[node name="Level" type="Node2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_mpqb3")
+player = NodePath("Player")
+
+[node name="Player" parent="." instance=ExtResource("2_an21l")]
+position = Vector2(180, 960)
+
+[node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("_player")]
+position = Vector2(0, 540)
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+script = ExtResource("3_ro6ko")
+_player = NodePath("../Player")
+_xOffset = 480.0
+_yBaseline = 960.0
+_yOffset = 540.0
+_yScale = 0.25
+_yExtremeMin = -60.0
+_yExtremeMax = 120.0
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_5l28f")
 format = 2
-layer_0/tile_data = PackedInt32Array(524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 262151, 65536, 0, 262152, 65536, 0, 262153, 65536, 0, 262154, 65536, 0, 262155, 65536, 0, 262156, 65536, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524311, 0, 0, 524312, 0, 0, 524313, 0, 0, 327708, 0, 0, 327709, 0, 0, 327710, 0, 0, 262177, 0, 0, 458788, 0, 0, 327719, 0, 0, 589824, 0, 1, 589825, 0, 1, 589826, 0, 1, 589827, 0, 1, 589828, 0, 1, 589829, 0, 1, 589833, 0, 1, 589834, 0, 1, 589835, 0, 1, 589836, 0, 1, 589837, 0, 1, 589838, 0, 1, 589839, 0, 1, 589843, 0, 1, 589844, 0, 1, 589845, 0, 1, 589846, 0, 1, 589847, 0, 1, 589848, 0, 1, 589849, 0, 1, 393244, 0, 1, 393245, 0, 1, 393246, 0, 1, 327713, 0, 1, 524324, 0, 1, 393255, 0, 1)
+layer_0/tile_data = PackedInt32Array(524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 262151, 65536, 0, 262152, 65536, 0, 262153, 65536, 0, 262154, 65536, 0, 262155, 65536, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524311, 0, 0, 524312, 0, 0, 524313, 0, 0, 327708, 0, 0, 327709, 0, 0, 327710, 0, 0, 262177, 0, 0, 458788, 0, 0, 327719, 0, 0, 589824, 0, 1, 589825, 0, 1, 589826, 0, 1, 589827, 0, 1, 589828, 0, 1, 589829, 0, 1, 589833, 0, 1, 589834, 0, 1, 589835, 0, 1, 589836, 0, 1, 589837, 0, 1, 589838, 0, 1, 589839, 0, 1, 589843, 0, 1, 589844, 0, 1, 589845, 0, 1, 589846, 0, 1, 589847, 0, 1, 589848, 0, 1, 589849, 0, 1, 393244, 0, 1, 393245, 0, 1, 393246, 0, 1, 327713, 0, 1, 524324, 0, 1, 393255, 0, 1, 589842, 0, 1, 524306, 0, 0)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_an21l")]
-position = Vector2(195, 943)
+[node name="Floor Kill" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("5_rxcub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor Kill"]
+position = Vector2(0, 1200)
+shape = SubResource("WorldBoundaryShape2D_lprav")
+
+[node name="Spike2" parent="." instance=ExtResource("5_ms5fr")]
+position = Vector2(1500, 900)
+
+[node name="Spike3" parent="." instance=ExtResource("5_ms5fr")]
+position = Vector2(1380, 900)
+
+[node name="Spike4" parent="." instance=ExtResource("5_ms5fr")]
+position = Vector2(900, 660)
+rotation = -3.14159
+
+[node name="Basic Enemy" parent="." node_paths=PackedStringArray("_minWanderPoint", "_maxWanderPoint") instance=ExtResource("6_mer51")]
+position = Vector2(1860, 900)
+_minWanderPoint = NodePath("../Node2D")
+_maxWanderPoint = NodePath("../Node2D2")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(1620, 960)
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(1860, 960)
