@@ -23,3 +23,8 @@ window/size/mode=2
 [dotnet]
 
 project/assembly_name="Global Game Jam"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
