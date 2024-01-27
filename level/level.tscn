@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b120i1djkd6ov"]
+[gd_scene load_steps=20 format=3 uid="uid://2b3skik47boy"]
 
 [ext_resource type="TileSet" uid="uid://bb5l2myi71tee" path="res://level/tile_set.tres" id="1_5l28f"]
 [ext_resource type="Script" path="res://level/Level.cs" id="1_mpqb3"]
@@ -136,13 +136,11 @@ position = Vector2(11460, 660)
 [node name="Falling Tile6" parent="Falling Tiles" instance=ExtResource("6_0i5uw")]
 position = Vector2(11340, 660)
 
-[node name="Falling Ceiling" parent="Falling Tiles" node_paths=PackedStringArray("_targetDistance") instance=ExtResource("12_4hcsf")]
+[node name="Falling Ceiling" parent="Falling Tiles" instance=ExtResource("12_4hcsf")]
 position = Vector2(14040, -600)
-_targetDistance = NodePath("../Node2D")
 
-[node name="Falling Ceiling2" parent="Falling Tiles" node_paths=PackedStringArray("_targetDistance") instance=ExtResource("12_4hcsf")]
+[node name="Falling Ceiling2" parent="Falling Tiles" instance=ExtResource("12_4hcsf")]
 position = Vector2(14520, -600)
-_targetDistance = NodePath("../Node2D")
 
 [node name="Node2D" type="Node2D" parent="Falling Tiles"]
 position = Vector2(14040, 600)
