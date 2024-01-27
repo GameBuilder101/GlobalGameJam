@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dlb5w33rqpxbs"]
 
-[ext_resource type="Script" path="res://KillTrigger.cs" id="1_ye5ss"]
+[ext_resource type="Script" path="res://level/KillTrigger.cs" id="1_ye5ss"]
 [ext_resource type="Texture2D" uid="uid://cfdrsgc828g7u" path="res://obstacles/spike.png" id="2_nflnf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tadjf"]

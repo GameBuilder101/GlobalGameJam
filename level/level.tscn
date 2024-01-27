@@ -1,39 +1,49 @@
-[gd_scene load_steps=9 format=3 uid="uid://b120i1djkd6ov"]
+[gd_scene load_steps=13 format=3 uid="uid://b120i1djkd6ov"]
 
 [ext_resource type="TileSet" uid="uid://b1pjut54o3psb" path="res://level/tile_set.tres" id="1_5l28f"]
 [ext_resource type="Script" path="res://level/Level.cs" id="1_mpqb3"]
 [ext_resource type="PackedScene" uid="uid://ca8tblhg3tw5u" path="res://player/player.tscn" id="2_an21l"]
+[ext_resource type="PackedScene" uid="uid://d0q2skjqm3ygv" path="res://UI/UI.tscn" id="2_qcoqm"]
 [ext_resource type="Script" path="res://level/Camera.cs" id="3_ro6ko"]
 [ext_resource type="PackedScene" uid="uid://dlb5w33rqpxbs" path="res://obstacles/Spike.tscn" id="5_ms5fr"]
-[ext_resource type="Script" path="res://KillTrigger.cs" id="5_rxcub"]
+[ext_resource type="Script" path="res://level/KillTrigger.cs" id="5_rxcub"]
+[ext_resource type="PackedScene" uid="uid://dtuy5vskpyg3l" path="res://obstacles/falling_tile.tscn" id="6_0i5uw"]
 [ext_resource type="PackedScene" uid="uid://bbyoyqsgm76b3" path="res://enemies/basic_enemy.tscn" id="6_mer51"]
+[ext_resource type="Script" path="res://level/SpawnTrigger.cs" id="8_3o3d2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lprav"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w0ofj"]
+size = Vector2(60, 300)
 
 [node name="Level" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_mpqb3")
 player = NodePath("Player")
 
 [node name="Player" parent="." instance=ExtResource("2_an21l")]
-position = Vector2(180, 960)
+position = Vector2(180, 840)
 
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("_player")]
 position = Vector2(0, 540)
-position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 script = ExtResource("3_ro6ko")
 _player = NodePath("../Player")
 _xOffset = 480.0
-_yBaseline = 960.0
+_yBaseline = 840.0
 _yOffset = 540.0
-_yScale = 0.25
-_yExtremeMin = -60.0
+_yScale = 0.2
+_yExtremeMin = -80.0
 _yExtremeMax = 120.0
+
+[node name="Ui" parent="Camera" instance=ExtResource("2_qcoqm")]
+z_index = 128
+z_as_relative = false
+position = Vector2(-960, -540)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_5l28f")
 format = 2
-layer_0/tile_data = PackedInt32Array(524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 262151, 65536, 0, 262152, 65536, 0, 262153, 65536, 0, 262154, 65536, 0, 262155, 65536, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524311, 0, 0, 524312, 0, 0, 524313, 0, 0, 327708, 0, 0, 327709, 0, 0, 327710, 0, 0, 262177, 0, 0, 458788, 0, 0, 327719, 0, 0, 589824, 0, 1, 589825, 0, 1, 589826, 0, 1, 589827, 0, 1, 589828, 0, 1, 589829, 0, 1, 589833, 0, 1, 589834, 0, 1, 589835, 0, 1, 589836, 0, 1, 589837, 0, 1, 589838, 0, 1, 589839, 0, 1, 589843, 0, 1, 589844, 0, 1, 589845, 0, 1, 589846, 0, 1, 589847, 0, 1, 589848, 0, 1, 589849, 0, 1, 393244, 0, 1, 393245, 0, 1, 393246, 0, 1, 327713, 0, 1, 524324, 0, 1, 393255, 0, 1, 589842, 0, 1, 524306, 0, 0)
+layer_0/tile_data = PackedInt32Array(524288, 0, 1, 524289, 0, 1, 524290, 0, 1, 524291, 0, 1, 524292, 0, 1, 524293, 0, 1, 524295, 0, 1, 524294, 0, 1, 524296, 0, 1, 524297, 0, 1, 524302, 0, 1, 524303, 0, 1, 524304, 0, 1, 524305, 0, 1, 524306, 0, 1, 393239, 65536, 0, 524319, 0, 1, 524320, 0, 1, 524321, 0, 1, 524307, 0, 1, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458783, 0, 0, 458784, 0, 0, 458785, 0, 0, 589824, 0, 1, 589825, 0, 1, 589826, 0, 1, 589827, 0, 1, 589828, 0, 1, 589829, 0, 1, 589830, 0, 1, 589831, 0, 1, 589832, 0, 1, 589833, 0, 1, 589838, 0, 1, 589839, 0, 1, 589840, 0, 1, 589841, 0, 1, 589842, 0, 1, 589843, 0, 1, 589855, 0, 1, 589856, 0, 1, 589857, 0, 1, 589858, 0, 1, 655359, 0, 1, 589823, 0, 1, 589822, 0, 1, 589821, 0, 1, 589820, 0, 1, 589819, 0, 1, 589818, 0, 1, 589817, 0, 1, 589816, 0, 1, 589815, 0, 1, 589814, 0, 1, 589813, 0, 1, 655349, 0, 1, 655348, 0, 1, 655350, 0, 1, 655351, 0, 1, 655352, 0, 1, 655353, 0, 1, 655354, 0, 1, 655355, 0, 1, 655356, 0, 1, 655357, 0, 1, 655358, 0, 1, 589812, 0, 1, 524287, 0, 1, 524286, 0, 1, 524285, 0, 1, 524284, 0, 1, 524283, 0, 1, 524282, 0, 1, 524281, 0, 1, 524280, 0, 1, 524279, 0, 1, 524278, 0, 1, 524277, 0, 1, 524276, 0, 1, 458740, 0, 1, 458741, 0, 1, 458742, 0, 1, 458743, 0, 1, 458744, 0, 1, 458745, 0, 1, 458746, 0, 1, 458747, 0, 1, 458748, 0, 1, 458749, 0, 1, 458750, 0, 1, 458751, 0, 1, 393215, 0, 1, 393214, 0, 1, 393213, 0, 1, 393212, 0, 1, 393211, 0, 1, 393210, 0, 1, 393209, 0, 1, 393208, 0, 1, 393207, 0, 1, 393206, 0, 1, 393205, 0, 1, 393204, 0, 1, 327679, 0, 1, 327678, 0, 1, 327677, 0, 1, 327676, 0, 1, 327675, 0, 1, 327674, 0, 1, 327673, 0, 1, 327672, 0, 1, 327671, 0, 1, 327670, 0, 1, 327669, 0, 1, 327668, 0, 1, 327667, 0, 1, 327666, 0, 1, 327665, 0, 1, 327664, 0, 1, 327663, 0, 1, 327662, 0, 1, 327661, 0, 1, 327660, 0, 1, 393196, 0, 1, 458732, 0, 1, 524268, 0, 1, 589804, 0, 1, 589805, 0, 1, 589806, 0, 1, 589807, 0, 1, 589808, 0, 1, 589809, 0, 1, 589810, 0, 1, 589811, 0, 1, 655347, 0, 1, 655346, 0, 1, 655345, 0, 1, 655344, 0, 1, 655343, 0, 1, 655342, 0, 1, 655341, 0, 1, 655340, 0, 1, 458733, 0, 1, 393197, 0, 1, 393198, 0, 1, 458734, 0, 1, 524270, 0, 1, 524269, 0, 1, 524271, 0, 1, 458735, 0, 1, 458736, 0, 1, 393200, 0, 1, 393201, 0, 1, 393202, 0, 1, 393203, 0, 1, 458739, 0, 1, 524275, 0, 1, 524274, 0, 1, 458738, 0, 1, 524272, 0, 1, 524273, 0, 1, 458737, 0, 1, 393199, 0, 1, 262143, 0, 0, 262142, 0, 0, 262141, 0, 0, 262140, 0, 0, 262137, 0, 0, 262136, 0, 0, 262138, 0, 0, 262139, 0, 0, 262135, 0, 0, 262134, 0, 0, 262133, 0, 0, 262132, 0, 0, 262131, 0, 0, 262130, 0, 0, 262129, 0, 0, 262128, 0, 0, 262127, 0, 0, 262126, 0, 0, 262125, 0, 0, 262124, 0, 0, 589859, 0, 1, 589860, 0, 1, 589861, 0, 1, 589862, 0, 1, 589863, 0, 1, 589864, 0, 1, 524322, 0, 1, 458786, 0, 0, 589865, 0, 1, 589866, 0, 1, 589867, 0, 1, 589868, 0, 1, 589869, 0, 1, 589870, 0, 1, 589871, 0, 1, 589872, 0, 1, 589873, 0, 1, 589874, 0, 1, 458803, 0, 0, 458804, 0, 0, 458805, 0, 0, 458806, 0, 0, 524339, 0, 1, 524340, 0, 1, 524341, 0, 1, 524342, 0, 1, 589878, 0, 1, 589877, 0, 1, 589876, 0, 1, 589875, 0, 1, 524328, 0, 1, 524333, 0, 1, 458792, 0, 0, 458797, 0, 0, 393240, 65536, 0, 589879, 0, 1, 524343, 0, 1, 458807, 0, 1, 393271, 0, 1, 393272, 0, 1, 393273, 0, 1, 393274, 0, 1, 393275, 0, 1, 393276, 0, 1, 458811, 0, 1, 524347, 0, 1, 524346, 0, 1, 524345, 0, 1, 524344, 0, 1, 458808, 0, 1, 458809, 0, 1, 589880, 0, 1, 589881, 0, 1, 458810, 0, 1, 589882, 0, 1, 589883, 0, 1, 589884, 0, 1, 524348, 0, 1, 458812, 0, 1, 327735, 0, 0, 327736, 0, 0, 327737, 0, 0, 327738, 0, 0, 327739, 0, 0, 327740, 0, 0, 327745, 0, 0, 327746, 0, 0, 327747, 0, 0, 327748, 0, 0, 327749, 0, 0, 524362, 0, 0, 524363, 0, 0, 524364, 0, 0, 131146, 0, 0, 131147, 0, 0, 131148, 0, 0, 327766, 0, 0, 327767, 0, 0, 327768, 0, 0, 327769, 0, 0, 327770, 0, 0, 327771, 0, 0, 327772, 0, 0, 327773, 0, 0, 393302, 0, 1, 458838, 0, 1, 524374, 0, 1, 589910, 0, 1, 589911, 0, 1, 589912, 0, 1, 589913, 0, 1, 524377, 0, 1, 524378, 0, 1, 524379, 0, 1, 524380, 0, 1, 589916, 0, 1, 589917, 0, 1, 524381, 0, 1, 458845, 0, 1, 393309, 0, 1, 393308, 0, 1, 393307, 0, 1, 393306, 0, 1, 393305, 0, 1, 393304, 0, 1, 393303, 0, 1, 458839, 0, 1, 524375, 0, 1, 524376, 0, 1, 458840, 0, 1, 458841, 0, 1, 458842, 0, 1, 458843, 0, 1, 458844, 0, 1, 589915, 0, 1, 589914, 0, 1, 196699, 131072, 0, 262235, 131072, 1)
 
 [node name="Floor Kill" type="Area2D" parent="."]
 collision_mask = 2
@@ -43,23 +53,81 @@ script = ExtResource("5_rxcub")
 position = Vector2(0, 1200)
 shape = SubResource("WorldBoundaryShape2D_lprav")
 
-[node name="Spike2" parent="." instance=ExtResource("5_ms5fr")]
-position = Vector2(1500, 900)
+[node name="Spikes" type="Node2D" parent="."]
 
-[node name="Spike3" parent="." instance=ExtResource("5_ms5fr")]
-position = Vector2(1380, 900)
+[node name="Spike" parent="Spikes" instance=ExtResource("5_ms5fr")]
+position = Vector2(4260, 1020)
 
-[node name="Spike4" parent="." instance=ExtResource("5_ms5fr")]
-position = Vector2(900, 660)
-rotation = -3.14159
+[node name="Spike2" parent="Spikes" instance=ExtResource("5_ms5fr")]
+position = Vector2(4380, 1020)
 
-[node name="Basic Enemy" parent="." node_paths=PackedStringArray("_minWanderPoint", "_maxWanderPoint") instance=ExtResource("6_mer51")]
-position = Vector2(1860, 900)
-_minWanderPoint = NodePath("../Node2D")
-_maxWanderPoint = NodePath("../Node2D2")
+[node name="Spike3" parent="Spikes" instance=ExtResource("5_ms5fr")]
+position = Vector2(4500, 1020)
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(1620, 960)
+[node name="Spike4" parent="Spikes" instance=ExtResource("5_ms5fr")]
+position = Vector2(4620, 1020)
 
-[node name="Node2D2" type="Node2D" parent="."]
-position = Vector2(1860, 960)
+[node name="Spike5" parent="Spikes" instance=ExtResource("5_ms5fr")]
+position = Vector2(4740, 1020)
+
+[node name="Spike6" parent="Spikes" instance=ExtResource("5_ms5fr")]
+position = Vector2(4980, 1020)
+
+[node name="Spike7" parent="Spikes" instance=ExtResource("5_ms5fr")]
+position = Vector2(5100, 1020)
+
+[node name="Spike8" parent="Spikes" instance=ExtResource("5_ms5fr")]
+position = Vector2(5220, 1020)
+
+[node name="Spike9" parent="Spikes" instance=ExtResource("5_ms5fr")]
+position = Vector2(5340, 1020)
+
+[node name="Spike10" parent="Spikes" instance=ExtResource("5_ms5fr")]
+position = Vector2(5580, 1020)
+
+[node name="Spike11" parent="Spikes" instance=ExtResource("5_ms5fr")]
+position = Vector2(5700, 1020)
+
+[node name="Spike12" parent="Spikes" instance=ExtResource("5_ms5fr")]
+position = Vector2(5820, 1020)
+
+[node name="Spike13" parent="Spikes" instance=ExtResource("5_ms5fr")]
+position = Vector2(5940, 1020)
+
+[node name="Spike14" parent="Spikes" instance=ExtResource("5_ms5fr")]
+position = Vector2(6060, 1020)
+
+[node name="Falling Tiles" type="Node2D" parent="."]
+
+[node name="Falling Tile" parent="Falling Tiles" instance=ExtResource("6_0i5uw")]
+position = Vector2(3060, 780)
+
+[node name="Falling Tile2" parent="Falling Tiles" instance=ExtResource("6_0i5uw")]
+position = Vector2(3180, 780)
+
+[node name="Triggers" type="Node2D" parent="."]
+
+[node name="Spawn Spike" type="Area2D" parent="Triggers" node_paths=PackedStringArray("spawnObjects")]
+collision_mask = 2
+script = ExtResource("8_3o3d2")
+spawnObjects = [NodePath("Spike")]
+
+[node name="Collision" type="CollisionShape2D" parent="Triggers/Spawn Spike"]
+position = Vector2(5460, 660)
+shape = SubResource("RectangleShape2D_w0ofj")
+
+[node name="Spike" parent="Triggers/Spawn Spike" instance=ExtResource("5_ms5fr")]
+position = Vector2(5460, 780)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Basic Enemy" parent="Enemies" node_paths=PackedStringArray("_minWanderPoint", "_maxWanderPoint") instance=ExtResource("6_mer51")]
+position = Vector2(8100, 540)
+_minWanderPoint = NodePath("../Min Wander")
+_maxWanderPoint = NodePath("../Max Wander")
+
+[node name="Min Wander" type="Node2D" parent="Enemies"]
+position = Vector2(7860, 600)
+
+[node name="Max Wander" type="Node2D" parent="Enemies"]
+position = Vector2(8340, 600)

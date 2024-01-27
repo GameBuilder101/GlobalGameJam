@@ -23,7 +23,7 @@ public partial class Camera : Camera2D
     [Export]
     private float _yExtremeMax;
 
-    public override void _Process(double delta)
+    public override void _PhysicsProcess(double delta)
 	{
         Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 		if (direction.X != 0.0f)
