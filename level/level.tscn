@@ -1,33 +1,18 @@
-[gd_scene load_steps=41 format=3 uid="uid://2b3skik47boy"]
+[gd_scene load_steps=26 format=3 uid="uid://2b3skik47boy"]
 
 [ext_resource type="TileSet" uid="uid://bb5l2myi71tee" path="res://level/tile_set.tres" id="1_5l28f"]
 [ext_resource type="Script" path="res://level/Level.cs" id="1_mpqb3"]
 [ext_resource type="PackedScene" uid="uid://ca8tblhg3tw5u" path="res://player/player.tscn" id="2_an21l"]
 [ext_resource type="PackedScene" uid="uid://d0q2skjqm3ygv" path="res://UI/UI.tscn" id="2_qcoqm"]
-[ext_resource type="Resource" uid="uid://7owxu4r6opom" path="res://dialogues/death_0.tres" id="2_vao3u"]
-[ext_resource type="Resource" uid="uid://dvmmo62uialnm" path="res://dialogues/death_1.tres" id="3_5rwhh"]
 [ext_resource type="Script" path="res://level/Camera.cs" id="3_ro6ko"]
-[ext_resource type="Resource" uid="uid://bqhowcngjw5lk" path="res://dialogues/death_2.tres" id="4_yyrn8"]
-[ext_resource type="PackedScene" uid="uid://dlb5w33rqpxbs" path="res://obstacles/Spike.tscn" id="5_ms5fr"]
-[ext_resource type="Resource" uid="uid://cgfl44odutbw0" path="res://dialogues/death_3.tres" id="5_ohntk"]
+[ext_resource type="PackedScene" path="res://obstacles/Spike.tscn" id="5_ms5fr"]
 [ext_resource type="Script" path="res://level/KillTrigger.cs" id="5_rxcub"]
-[ext_resource type="PackedScene" uid="uid://dtuy5vskpyg3l" path="res://obstacles/falling_tile.tscn" id="6_0i5uw"]
-[ext_resource type="Resource" uid="uid://bp0hbl1p2bqt" path="res://dialogues/death_4.tres" id="6_de1en"]
+[ext_resource type="PackedScene" path="res://obstacles/falling_tile.tscn" id="6_0i5uw"]
 [ext_resource type="PackedScene" uid="uid://bbyoyqsgm76b3" path="res://enemies/basic_enemy/basic_enemy.tscn" id="6_mer51"]
 [ext_resource type="Texture2D" uid="uid://d043rx4cvx875" path="res://level/arrow.png" id="7_l6dye"]
-[ext_resource type="Resource" uid="uid://dlmxgsgldicvo" path="res://dialogues/death_5.tres" id="7_q4x6s"]
 [ext_resource type="Script" path="res://level/SpawnTrigger.cs" id="8_3o3d2"]
-[ext_resource type="Resource" uid="uid://bfjv55l2tgg70" path="res://dialogues/death_6.tres" id="8_j0pv4"]
-[ext_resource type="Resource" uid="uid://bxt4c2fpsx0ao" path="res://dialogues/death_7.tres" id="9_l7qwg"]
-[ext_resource type="Resource" uid="uid://cpqe42jlyp6b4" path="res://dialogues/death_8.tres" id="10_1diik"]
-[ext_resource type="Resource" uid="uid://boh6e7x2opmrm" path="res://dialogues/death_9.tres" id="11_1mlsp"]
 [ext_resource type="Script" path="res://level/NarratorDialogueTrigger.cs" id="11_ux0dh"]
 [ext_resource type="PackedScene" uid="uid://ch2d8wcs61tok" path="res://obstacles/falling_ceiling.tscn" id="12_4hcsf"]
-[ext_resource type="Resource" uid="uid://4w1lva1qdjcx" path="res://dialogues/death_10.tres" id="12_rolf2"]
-[ext_resource type="Resource" uid="uid://khfdve6vatb5" path="res://dialogues/spawn.tres" id="16_aegtl"]
-[ext_resource type="Resource" uid="uid://b3nduxhklrttm" path="res://dialogues/jump_input.tres" id="17_umons"]
-[ext_resource type="Resource" uid="uid://bqa267unh41e6" path="res://dialogues/falling_blocks.tres" id="18_80oaw"]
-[ext_resource type="Resource" uid="uid://b1ki4ohd2epl7" path="res://dialogues/wrong_way.tres" id="19_cg8fx"]
 [ext_resource type="Texture2D" uid="uid://djc65byrd7wk2" path="res://level/background_0.png" id="31_2gm68"]
 [ext_resource type="Texture2D" uid="uid://r7a5ecty28hf" path="res://level/background_1.png" id="32_x0kcd"]
 [ext_resource type="Texture2D" uid="uid://bo3ygbh3842ii" path="res://level/background_2.png" id="33_cg1fe"]
@@ -59,7 +44,6 @@ size = Vector2(360, 600)
 [node name="Level" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_mpqb3")
 player = NodePath("Player")
-deathDialogues = Array[Object]([ExtResource("2_vao3u"), null, ExtResource("3_5rwhh"), null, ExtResource("4_yyrn8"), null, ExtResource("5_ohntk"), null, ExtResource("6_de1en"), null, ExtResource("7_q4x6s"), null, ExtResource("8_j0pv4"), null, ExtResource("9_l7qwg"), ExtResource("10_1diik"), ExtResource("11_1mlsp"), null, ExtResource("12_rolf2")])
 
 [node name="Player" parent="." node_paths=PackedStringArray("respawnPoint") instance=ExtResource("2_an21l")]
 position = Vector2(-4620, 840)
@@ -261,7 +245,6 @@ shape = SubResource("RectangleShape2D_0s6ny")
 [node name="ND Spawn" type="Area2D" parent="Triggers"]
 collision_mask = 2
 script = ExtResource("11_ux0dh")
-dialogue = ExtResource("16_aegtl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/ND Spawn"]
 position = Vector2(-4620, 660)
@@ -270,7 +253,6 @@ shape = SubResource("RectangleShape2D_78gp6")
 [node name="ND Jump Input" type="Area2D" parent="Triggers"]
 collision_mask = 2
 script = ExtResource("11_ux0dh")
-dialogue = ExtResource("17_umons")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/ND Jump Input"]
 position = Vector2(240, 420)
@@ -279,7 +261,6 @@ shape = SubResource("RectangleShape2D_50fll")
 [node name="ND Falling Blocks" type="Area2D" parent="Triggers"]
 collision_mask = 2
 script = ExtResource("11_ux0dh")
-dialogue = ExtResource("18_80oaw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/ND Falling Blocks"]
 position = Vector2(3120, 930)
@@ -288,7 +269,6 @@ shape = SubResource("RectangleShape2D_fclxh")
 [node name="ND Wrong Way" type="Area2D" parent="Triggers"]
 collision_mask = 2
 script = ExtResource("11_ux0dh")
-dialogue = ExtResource("19_cg8fx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/ND Wrong Way"]
 position = Vector2(9060, 660)

@@ -18,53 +18,53 @@ public partial class Player : CharacterBody2D
 	public Node2D respawnPoint;
 
 	public bool IsDead { get; private set; }
-    /// <summary>
-    /// The current death count.
-    /// </summary>
-    public int DeathCount { get; private set; }
+	/// <summary>
+	/// The current death count.
+	/// </summary>
+	public int DeathCount { get; private set; }
 	private double _resetDelay;
 
-    [Signal]
+	[Signal]
 	public delegate void DeathEventHandler();
 
-    public override void _Ready()
-    {
-        base._Ready();
+	public override void _Ready()
+	{
+		base._Ready();
 		AddToGroup(Level.ResetableGroup);
-    }
+	}
 
-    public override void _PhysicsProcess(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
 
 		if (IsOnFloor()) // Reset double jump
 		{
 			_coyoteTimer = coyoteTime;
-            _doubleJumped = false;
-        }
-        else // Add the gravity
+			_doubleJumped = false;
+		}
+		else // Add the gravity
 		{
-            velocity.Y += gravity * (float)delta;
+			velocity.Y += gravity * (float)delta;
 			_coyoteTimer -= delta;
-        }
+		}
 
-        // Handle jumping
-        if (Input.IsActionJustPressed("ui_accept") || Input.IsActionJustPressed("ui_up"))
+		// Handle jumping
+		if (Input.IsActionJustPressed("ui_accept") || Input.IsActionJustPressed("ui_up"))
 		{
 			if (IsOnFloor() || _coyoteTimer > 0.0 || !_doubleJumped)
 				velocity.Y = jumpVelocity;
 			if (!(IsOnFloor() || _coyoteTimer > 0.0))
 				_doubleJumped = true;
-        }
+		}
 
 		// Get the input direction and handle the movement/deceleration
 		float direction = Input.GetAxis("ui_left", "ui_right");
 		if (direction != 0.0f)
-            velocity.X = direction * speed;
-        else
-            velocity.X = Mathf.MoveToward(Velocity.X, 0, speed);
+			velocity.X = direction * speed;
+		else
+			velocity.X = Mathf.MoveToward(Velocity.X, 0, speed);
 
-        Velocity = velocity;
+		Velocity = velocity;
 		if (IsDead)
 			Velocity = Vector2.Zero;
 		MoveAndSlide();
@@ -81,16 +81,16 @@ public partial class Player : CharacterBody2D
 		if (IsDead || _resetDelay > 0.0)
 			return;
 		IsDead = true;
-        Velocity = Vector2.Zero;
-        Hide();
-        EmitSignal(SignalName.Death);
-    }
+		Velocity = Vector2.Zero;
+		Hide();
+		EmitSignal(SignalName.Death);
+	}
 
-    public void Reset(int newDeathCount)
-    {
+	public void Reset(int newDeathCount)
+	{
 		Position = respawnPoint.Position;
 		Show();
-        IsDead = false;
-        _resetDelay = 1.0;
-    }
+		IsDead = false;
+		_resetDelay = 1.0;
+	}
 }

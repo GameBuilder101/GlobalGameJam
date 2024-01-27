@@ -40,9 +40,9 @@ public partial class Level : Node2D
 
 		if (_currentDeathDialogue < deathDialogues.Count && deathDialogues[_currentDeathDialogue] != null)
 		{
-            deathDialogues[_currentDeathDialogue].Start();
-            _currentDeathDialogue++;
-        }
+			deathDialogues[_currentDeathDialogue].Start();
+			_currentDeathDialogue++;
+		}
 	}
 
 	/// <summary>

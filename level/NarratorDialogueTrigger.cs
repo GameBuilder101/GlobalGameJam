@@ -2,21 +2,21 @@ using Godot;
 
 public partial class NarratorDialogueTrigger : Area2D
 {
-    private bool _triggered;
+	private bool _triggered;
 
-    [Export]
-    public NarratorScript dialogue;
+	[Export]
+	public NarratorScript dialogue;
 
-    public override void _Ready()
+	public override void _Ready()
 	{
-        BodyEntered += OnTrigger;
-    }
+		BodyEntered += OnTrigger;
+	}
 
-    private void OnTrigger(Node2D body)
-    {
-        if (_triggered || !(body is Player))
-            return;
-        _triggered = true;
-        dialogue.Start();
-    }
+	private void OnTrigger(Node2D body)
+	{
+		if (_triggered || !(body is Player))
+			return;
+		_triggered = true;
+		dialogue.Start();
+	}
 }
