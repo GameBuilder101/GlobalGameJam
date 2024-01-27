@@ -33,8 +33,10 @@ public partial class NarratorScript : Resource
 		if (!Object.ReferenceEquals(NarratorAudio.Self.OnScript, this)) {
 			return;
 		}
-		if (this.On < Lines.Length && this.On < Voices.Length) {
+		if (this.On < Lines.Length {
 			NarratorTextLabel.Self.SetText(Lines[this.On]);
+		}
+		if (this.On < Voices.Length) {
 			NarratorAudio.Self.Stream = this.Voices[this.On];
 			NarratorAudio.Self.Play(0);
 		}
