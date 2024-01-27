@@ -19,14 +19,12 @@ public partial class NarratorScript : Resource
 		this.Next();
 	}
 	
-	public void StartRespectful() {
+	public bool StartRespectful() {
 		if (NarratorAudio.Self.Playing) {
-			return;
+			return false;
 		}
-		this.On = 0;
-		NarratorAudio.Self.OnScript = this;
-		NarratorAudio.Self.Stop();
-		this.Next();
+		this.Start();
+		return true;
 	}
 	
 	public void Next() {

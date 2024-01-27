@@ -47,13 +47,13 @@ public partial class Enemy : CharacterBody2D
 				Hide();
 		}
 
-        if (_resetDelay > 0.0)
+		if (_resetDelay > 0.0)
 		{
-            _resetDelay -= delta;
+			_resetDelay -= delta;
 			if (_resetDelay <= 0.0f)
-                SetCollisionEnabled(true);
-        }
-    }
+				SetCollisionEnabled(true);
+		}
+	}
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -72,7 +72,7 @@ public partial class Enemy : CharacterBody2D
 		if (IsDead)
 			Velocity = Vector2.Zero;
 		MoveAndSlide();
-    }
+	}
 
 	public void _on_die_trigger_body_entered(Node2D body)
 	{
@@ -92,17 +92,17 @@ public partial class Enemy : CharacterBody2D
 			return;
 		IsDead = true;
 
-        _aliveSprite.Hide();
+		_aliveSprite.Hide();
 		_deadSprite.Show();
 		_deathTime = deathDelay;
 
 		SetCollisionEnabled(false);
-    }
+	}
 
-    public void Reset(int newDeathCount)
-    {
-        Position = _startPosition;
-        Velocity = Vector2.Zero;
+	public void Reset(int newDeathCount)
+	{
+		Position = _startPosition;
+		Velocity = Vector2.Zero;
 
 		IsDead = false;
 		_aliveSprite.Show();
@@ -110,15 +110,15 @@ public partial class Enemy : CharacterBody2D
 
 		SetCollisionEnabled(true);
 
-        Show();
+		Show();
 
-        _resetDelay = 1.0;
-    }
+		_resetDelay = 1.0;
+	}
 
 	private void SetCollisionEnabled(bool value)
 	{
-        // Stupid stinky ugly meanie code deferred disable is cring
-        foreach (CollisionShape2D collision in _collision)
-            collision.SetDeferred("disabled", !value);
-    }
+		// Stupid stinky ugly meanie code deferred disable is cring
+		foreach (CollisionShape2D collision in _collision)
+			collision.SetDeferred("disabled", !value);
+	}
 }
