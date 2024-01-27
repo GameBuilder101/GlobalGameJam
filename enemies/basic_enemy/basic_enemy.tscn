@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bbyoyqsgm76b3"]
 
-[ext_resource type="Script" path="res://enemies/Enemy.cs" id="1_5varj"]
-[ext_resource type="Texture2D" uid="uid://wov6au0qj57u" path="res://enemies/basic_enemy.png" id="1_p6upc"]
-[ext_resource type="Texture2D" uid="uid://cerd14lyiwwbk" path="res://enemies/basic_enemy_dead.png" id="2_0k6sh"]
+[ext_resource type="Script" path="res://enemies/basic_enemy/Enemy.cs" id="1_5varj"]
+[ext_resource type="Texture2D" uid="uid://wov6au0qj57u" path="res://enemies/basic_enemy/basic_enemy.png" id="1_p6upc"]
+[ext_resource type="Texture2D" uid="uid://cerd14lyiwwbk" path="res://enemies/basic_enemy/basic_enemy_dead.png" id="2_0k6sh"]
 [ext_resource type="Script" path="res://level/KillTrigger.cs" id="3_y4ev7"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_mb7by"]

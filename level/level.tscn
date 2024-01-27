@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" path="res://obstacles/Spike.tscn" id="5_ms5fr"]
 [ext_resource type="Script" path="res://level/KillTrigger.cs" id="5_rxcub"]
 [ext_resource type="PackedScene" path="res://obstacles/falling_tile.tscn" id="6_0i5uw"]
-[ext_resource type="PackedScene" path="res://enemies/basic_enemy.tscn" id="6_mer51"]
+[ext_resource type="PackedScene" uid="uid://bbyoyqsgm76b3" path="res://enemies/basic_enemy/basic_enemy.tscn" id="6_mer51"]
 [ext_resource type="Script" path="res://level/SpawnTrigger.cs" id="8_3o3d2"]
 [ext_resource type="Script" path="res://level/NarratorDialogueTrigger.cs" id="11_ux0dh"]
 [ext_resource type="PackedScene" uid="uid://ch2d8wcs61tok" path="res://obstacles/falling_ceiling.tscn" id="12_4hcsf"]
