@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_pilfd")
-Lines = PackedStringArray("Ouch.")
+Lines = PackedStringArray("Dang. So close!")
 Voices = null

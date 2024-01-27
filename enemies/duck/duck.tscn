@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://dofgpxjlyq7n6"]
+
+[ext_resource type="Script" path="res://enemies/duck/Duck.cs" id="1_1b5ud"]
+[ext_resource type="Texture2D" uid="uid://cl08vpaijwoll" path="res://enemies/duck/duck.png" id="2_6jimc"]
+[ext_resource type="Texture2D" uid="uid://cqnl6dpu3gnun" path="res://enemies/duck/god_himself.png" id="3_fmgje"]
+[ext_resource type="Script" path="res://level/KillTrigger.cs" id="4_yw5sj"]
+[ext_resource type="Resource" uid="uid://dxl3vr2n351ut" path="res://dialogues/duck_death.tres" id="5_pxmcf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ltv0"]
+size = Vector2(120, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhq3e"]
+size = Vector2(300, 2880)
+
+[node name="Duck" type="Node2D" node_paths=PackedStringArray("_sleepingSprite", "_awakeSprite", "_killTrigger")]
+script = ExtResource("1_1b5ud")
+_sleepingSprite = NodePath("Sleeping Sprite")
+_awakeSprite = NodePath("Awake Sprite")
+_speed = 400.0
+_killTrigger = NodePath("Kill Trigger/CollisionShape2D")
+
+[node name="Sleeping Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_6jimc")
+
+[node name="Awake Sprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_fmgje")
+
+[node name="Kill Trigger" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("4_yw5sj")
+deathDialogue = ExtResource("5_pxmcf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Trigger"]
+shape = SubResource("RectangleShape2D_4ltv0")
+disabled = true
+
+[node name="Awake Trigger" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Awake Trigger"]
+position = Vector2(330, 0)
+shape = SubResource("RectangleShape2D_bhq3e")
+
+[connection signal="body_entered" from="Awake Trigger" to="." method="_on_awake_trigger_body_entered"]

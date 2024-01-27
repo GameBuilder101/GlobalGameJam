@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t00qur1trd5m"
-path="res://.godot/imported/test_tiles.png-2301c9a0ea869ae5db0ae650a8c2a286.ctex"
+uid="uid://beedptjgpjxp2"
+path="res://.godot/imported/checkpoint.png-b7f209c6f631b5976f6670885846dec5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/test_tiles.png"
-dest_files=["res://.godot/imported/test_tiles.png-2301c9a0ea869ae5db0ae650a8c2a286.ctex"]
+source_file="res://level/checkpoint.png"
+dest_files=["res://.godot/imported/checkpoint.png-b7f209c6f631b5976f6670885846dec5.ctex"]
 
 [params]
 

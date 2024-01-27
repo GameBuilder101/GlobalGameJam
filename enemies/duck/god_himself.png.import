@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1lp2t3ant0cr"
-path="res://.godot/imported/smite.png-2a2cc29b35ceda9af0788e918f7501b4.ctex"
+uid="uid://cqnl6dpu3gnun"
+path="res://.godot/imported/god_himself.png-a0a7b641cca5138a288d722ebf7aa0cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://obstacles/smite.png"
-dest_files=["res://.godot/imported/smite.png-2a2cc29b35ceda9af0788e918f7501b4.ctex"]
+source_file="res://enemies/duck/god_himself.png"
+dest_files=["res://.godot/imported/god_himself.png-a0a7b641cca5138a288d722ebf7aa0cc.ctex"]
 
 [params]
 
