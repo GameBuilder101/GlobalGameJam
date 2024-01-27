@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://2b3skik47boy"]
+[gd_scene load_steps=43 format=3 uid="uid://2b3skik47boy"]
 
 [ext_resource type="TileSet" uid="uid://bb5l2myi71tee" path="res://level/tile_set.tres" id="1_5l28f"]
 [ext_resource type="Script" path="res://level/Level.cs" id="1_mpqb3"]
@@ -30,6 +30,10 @@
 [ext_resource type="Resource" uid="uid://b3nduxhklrttm" path="res://dialogues/jump_input.tres" id="17_umons"]
 [ext_resource type="Resource" uid="uid://bqa267unh41e6" path="res://dialogues/falling_blocks.tres" id="18_80oaw"]
 [ext_resource type="Resource" uid="uid://b1ki4ohd2epl7" path="res://dialogues/wrong_way.tres" id="19_cg8fx"]
+[ext_resource type="Texture2D" uid="uid://djc65byrd7wk2" path="res://level/background_0.png" id="31_2gm68"]
+[ext_resource type="Texture2D" uid="uid://r7a5ecty28hf" path="res://level/background_1.png" id="32_x0kcd"]
+[ext_resource type="Texture2D" uid="uid://bo3ygbh3842ii" path="res://level/background_2.png" id="33_cg1fe"]
+[ext_resource type="Texture2D" uid="uid://61o51fjahq20" path="res://level/background_3.png" id="34_fmjo3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lprav"]
 
@@ -313,5 +317,39 @@ shape = SubResource("RectangleShape2D_cikob")
 
 [node name="Node2D" type="Node2D" parent="Player Respawn Points"]
 position = Vector2(0, 840)
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(-4620, 540)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+follow_viewport_enabled = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+position = Vector2(-4620, 540)
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("31_2gm68")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+position = Vector2(-4620, 540)
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("32_x0kcd")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+position = Vector2(-4620, 540)
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource("33_cg1fe")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+position = Vector2(-4620, 540)
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource("34_fmjo3")
 
 [editable path="Falling Tiles/Falling Ceiling"]
