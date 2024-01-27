@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=19 format=3 uid="uid://dy7wmgd4rvleo"]
-=======
 [gd_scene load_steps=20 format=3 uid="uid://b120i1djkd6ov"]
->>>>>>> db3bdf6c518bf54df507f474a55d5d0ea8bca2c8
 
 [ext_resource type="TileSet" uid="uid://bb5l2myi71tee" path="res://level/tile_set.tres" id="1_5l28f"]
 [ext_resource type="Script" path="res://level/Level.cs" id="1_mpqb3"]
