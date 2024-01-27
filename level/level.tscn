@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://2b3skik47boy"]
+[gd_scene load_steps=42 format=3 uid="uid://2b3skik47boy"]
 
 [ext_resource type="TileSet" uid="uid://bb5l2myi71tee" path="res://level/tile_set.tres" id="1_5l28f"]
 [ext_resource type="Script" path="res://level/Level.cs" id="1_mpqb3"]
@@ -21,6 +21,7 @@
 [ext_resource type="Resource" uid="uid://bxt4c2fpsx0ao" path="res://dialogues/death_7.tres" id="9_l7qwg"]
 [ext_resource type="Resource" uid="uid://cpqe42jlyp6b4" path="res://dialogues/death_8.tres" id="10_1diik"]
 [ext_resource type="Resource" uid="uid://boh6e7x2opmrm" path="res://dialogues/death_9.tres" id="11_1mlsp"]
+[ext_resource type="Resource" uid="uid://n5xtx41rtcjx" path="res://dialogues/falling_ceiling.tres" id="11_2rfsy"]
 [ext_resource type="Script" path="res://level/NarratorDialogueTrigger.cs" id="11_ux0dh"]
 [ext_resource type="PackedScene" uid="uid://ch2d8wcs61tok" path="res://obstacles/falling_ceiling.tscn" id="12_4hcsf"]
 [ext_resource type="Resource" uid="uid://4w1lva1qdjcx" path="res://dialogues/death_10.tres" id="12_rolf2"]
@@ -172,11 +173,17 @@ fallGravity = 40.0
 maxFallVelocity = 120.0
 _targetDistance = NodePath("../Node2D")
 
+[node name="Kill Trigger" parent="Falling Tiles/Falling Ceiling" index="5"]
+deathDialogue = ExtResource("11_2rfsy")
+
 [node name="Falling Ceiling2" parent="Falling Tiles" node_paths=PackedStringArray("_targetDistance") instance=ExtResource("12_4hcsf")]
 position = Vector2(14520, -600)
 fallGravity = 40.0
 maxFallVelocity = 120.0
 _targetDistance = NodePath("../Node2D")
+
+[node name="Kill Trigger" parent="Falling Tiles/Falling Ceiling2" index="5"]
+deathDialogue = ExtResource("11_2rfsy")
 
 [node name="Node2D" type="Node2D" parent="Falling Tiles"]
 position = Vector2(14280, 480)
@@ -300,34 +307,262 @@ shape = SubResource("RectangleShape2D_cikob")
 position = Vector2(0, 840)
 
 [node name="Background" type="Node2D" parent="."]
-position = Vector2(-4620, 540)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
 follow_viewport_enabled = true
+follow_viewport_scale = 1.2
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
-position = Vector2(-4620, 540)
+motion_scale = Vector2(0.01, 0.01)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2(-5760, 0)
 texture = ExtResource("31_2gm68")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2(-2320, 0)
+texture = ExtResource("31_2gm68")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2(1120, 0)
+texture = ExtResource("31_2gm68")
+centered = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2(4560, 0)
+texture = ExtResource("31_2gm68")
+centered = false
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2(8000, 0)
+texture = ExtResource("31_2gm68")
+centered = false
+
+[node name="Sprite2D6" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2(11440, 0)
+texture = ExtResource("31_2gm68")
+centered = false
+
+[node name="Sprite2D7" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2(14880, 0)
+texture = ExtResource("31_2gm68")
+centered = false
+
+[node name="Sprite2D8" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2(18320, 0)
+texture = ExtResource("31_2gm68")
+centered = false
+
+[node name="Sprite2D9" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2(21760, 0)
+texture = ExtResource("31_2gm68")
+centered = false
+
+[node name="Sprite2D10" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2(25200, 0)
+texture = ExtResource("31_2gm68")
+centered = false
+
+[node name="Sprite2D11" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2(28640, 0)
+texture = ExtResource("31_2gm68")
+centered = false
+
+[node name="Sprite2D12" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2(32080, 0)
+texture = ExtResource("31_2gm68")
+centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBackground"]
-position = Vector2(-4620, 540)
 motion_scale = Vector2(0.05, 0.05)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-5760, 0)
 texture = ExtResource("32_x0kcd")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-2320, 0)
+texture = ExtResource("32_x0kcd")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(1120, 0)
+texture = ExtResource("32_x0kcd")
+centered = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(4560, 0)
+texture = ExtResource("32_x0kcd")
+centered = false
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(8000, 0)
+texture = ExtResource("32_x0kcd")
+centered = false
+
+[node name="Sprite2D6" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(11440, 0)
+texture = ExtResource("32_x0kcd")
+centered = false
+
+[node name="Sprite2D7" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(14880, 0)
+texture = ExtResource("32_x0kcd")
+centered = false
+
+[node name="Sprite2D8" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(18320, 0)
+texture = ExtResource("32_x0kcd")
+centered = false
+
+[node name="Sprite2D9" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(21760, 0)
+texture = ExtResource("32_x0kcd")
+centered = false
+
+[node name="Sprite2D10" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(25200, 0)
+texture = ExtResource("32_x0kcd")
+centered = false
+
+[node name="Sprite2D11" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(28640, 0)
+texture = ExtResource("32_x0kcd")
+centered = false
+
+[node name="Sprite2D12" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(32080, 0)
+texture = ExtResource("32_x0kcd")
+centered = false
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Background/ParallaxBackground"]
-position = Vector2(-4620, 540)
 motion_scale = Vector2(0.1, 0.1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-5760, 0)
 texture = ExtResource("33_cg1fe")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-2320, 0)
+texture = ExtResource("33_cg1fe")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(1120, 0)
+texture = ExtResource("33_cg1fe")
+centered = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(4560, 0)
+texture = ExtResource("33_cg1fe")
+centered = false
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(8000, 0)
+texture = ExtResource("33_cg1fe")
+centered = false
+
+[node name="Sprite2D6" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(11440, 0)
+texture = ExtResource("33_cg1fe")
+centered = false
+
+[node name="Sprite2D7" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(14880, 0)
+texture = ExtResource("33_cg1fe")
+centered = false
+
+[node name="Sprite2D8" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(18320, 0)
+texture = ExtResource("33_cg1fe")
+centered = false
+
+[node name="Sprite2D9" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(21760, 0)
+texture = ExtResource("33_cg1fe")
+centered = false
+
+[node name="Sprite2D10" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(25200, 0)
+texture = ExtResource("33_cg1fe")
+centered = false
+
+[node name="Sprite2D11" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(28640, 0)
+texture = ExtResource("33_cg1fe")
+centered = false
+
+[node name="Sprite2D12" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(32080, 0)
+texture = ExtResource("33_cg1fe")
+centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Background/ParallaxBackground"]
-position = Vector2(-4620, 540)
 motion_scale = Vector2(0.15, 0.15)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer4"]
+position = Vector2(-5760, 0)
 texture = ExtResource("34_fmjo3")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer4"]
+position = Vector2(-2320, 0)
+texture = ExtResource("34_fmjo3")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer4"]
+position = Vector2(1120, 0)
+texture = ExtResource("34_fmjo3")
+centered = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer4"]
+position = Vector2(4560, 0)
+texture = ExtResource("34_fmjo3")
+centered = false
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer4"]
+position = Vector2(8000, 0)
+texture = ExtResource("34_fmjo3")
+centered = false
+
+[node name="Sprite2D6" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer4"]
+position = Vector2(11440, 0)
+texture = ExtResource("34_fmjo3")
+centered = false
+
+[node name="Sprite2D7" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer4"]
+position = Vector2(14880, 0)
+texture = ExtResource("34_fmjo3")
+centered = false
+
+[node name="Sprite2D8" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer4"]
+position = Vector2(18320, 0)
+texture = ExtResource("34_fmjo3")
+centered = false
+
+[node name="Sprite2D9" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer4"]
+position = Vector2(21760, 0)
+texture = ExtResource("34_fmjo3")
+centered = false
+
+[node name="Sprite2D10" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer4"]
+position = Vector2(25200, 0)
+texture = ExtResource("34_fmjo3")
+centered = false
+
+[node name="Sprite2D11" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer4"]
+position = Vector2(28640, 0)
+texture = ExtResource("34_fmjo3")
+centered = false
+
+[node name="Sprite2D12" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer4"]
+position = Vector2(32080, 0)
+texture = ExtResource("34_fmjo3")
+centered = false
+
+[editable path="Falling Tiles/Falling Ceiling"]
+[editable path="Falling Tiles/Falling Ceiling2"]
