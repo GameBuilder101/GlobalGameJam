@@ -1,7 +1,8 @@
 using Godot;
 using System;
 
-public partial class NarratorScripts : Resource
+[GlobalClass]
+public partial class NarratorScript : Resource
 {
 	[Export]
 	private String[] Lines;
@@ -28,5 +29,15 @@ public partial class NarratorScripts : Resource
 			NarratorAudio.Self.Play(0);
 		}
 		this.On += 1;
+	}
+	
+	public NarratorScript() {
+		this.Lines = new String[0];
+		this.Voices = new AudioStream[0];
+	}
+	
+	public NarratorScript(String[] lines, AudioStream[] voices) {
+		this.Lines = lines;
+		this.Voices = voices;
 	}
 }
