@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="NarratorScript" load_steps=2 format=3 uid="uid://n5xtx41rtcjx"]
+
+[ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_ad7du"]
+
+[resource]
+script = ExtResource("1_ad7du")
+Lines = PackedStringArray("[shake rate=20.0 level=20 connected=1]YES! DEATH TO TEDDY BEARS!!![/shake] Oh, ah... [i]Ahem.[/i] Excuse me. Lost my composure.")
+Voices = null
