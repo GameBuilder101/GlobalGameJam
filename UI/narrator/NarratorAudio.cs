@@ -17,4 +17,9 @@ public partial class NarratorAudio : AudioStreamPlayer
 	public override void _Process(double delta)
 	{
 	}
+	
+	private void OnFinished()
+	{
+		this.OnScript.Next();
+	}
 }

@@ -32,3 +32,4 @@ Delay = 0.05
 script = ExtResource("2_xwwof")
 
 [connection signal="resized" from="Panel/NarratorText" to="Panel/NarratorText" method="OnResized"]
+[connection signal="finished" from="NarratorAudio" to="NarratorAudio" method="OnFinished"]

@@ -14,6 +14,7 @@ public partial class NarratorScripts : Resource
 	public void StartOver() {
 		this.On = 0;
 		NarratorAudio.Self.OnScript = this;
+		NarratorAudio.Self.Stop();
 		this.Next();
 	}
 	
@@ -23,7 +24,8 @@ public partial class NarratorScripts : Resource
 		}
 		if (this.On < Lines.Length && this.On < Voices.Length) {
 			NarratorTextLabel.Self.SetText(Lines[this.On]);
-			NarratorAudio.Self.OnScript = this;
+			NarratorAudio.Self.Stream = this.Voices[this.On];
+			NarratorAudio.Self.Play(0);
 		}
 		this.On += 1;
 	}

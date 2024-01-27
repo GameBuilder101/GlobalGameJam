@@ -18,7 +18,7 @@ public partial class NarratorTextLabel : RichTextLabel
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		this.SetText("screeching away, I don't know what to say I'll screech it anyway.  In this minecraft world, so beautiful.");
+		this.SetText("");
 	}
 	
 	private bool ProgressText() {
