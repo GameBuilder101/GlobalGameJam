@@ -18,7 +18,7 @@ public partial class NarratorTextLabel : RichTextLabel
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-        this.SetText("");
+		this.Text = "";
 		Self = this;
 	}
 	
@@ -27,9 +27,9 @@ public partial class NarratorTextLabel : RichTextLabel
 			this.Text = this.TextTotal;
 			return false;
 		}
-		//if (this.Text == "") {
-			//this.Background.Size = new Vector2(this.Size.X, this.Size.Y);
-		//}
+		if (this.Text == "") {
+			this.Background.Size = new Vector2(this.Size.X, this.Size.Y);
+		}
 		if (this.TextTotal[this.Text.Length] == '[') {
 			this.Text = this.TextTotal.Substring(0, this.TextTotal.IndexOf(']', this.Text.Length) + 1);
 			return true;
