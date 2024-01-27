@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="NarratorScript" load_steps=2 format=3 uid="uid://dvmmo62uialnm"]
+
+[ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_dxcux"]
+
+[resource]
+script = ExtResource("1_dxcux")
+Lines = PackedStringArray("Darn. Well, give it another shot!")
+Voices = null

@@ -1,5 +1,4 @@
 using Godot;
-using static System.Net.Mime.MediaTypeNames;
 
 public partial class Level : Node2D
 {
@@ -13,7 +12,7 @@ public partial class Level : Node2D
 	private double _deathTimer = -1.0;
 
 	[Export]
-	public string[] deathDialogues;
+	public Godot.Collections.Array<NarratorScript> deathDialogues;
 	private int _currentDeathDialogue;
 
 	public override void _Ready()
@@ -39,9 +38,11 @@ public partial class Level : Node2D
 			return;
 		_deathTimer = _deathTimerDuration;
 
-		if (deathDialogues[_currentDeathDialogue] != "")
-			NarratorTextLabel.Self.SetText(deathDialogues[_currentDeathDialogue]);
-		_currentDeathDialogue++;
+		if (_currentDeathDialogue < deathDialogues.Count && deathDialogues[_currentDeathDialogue] != null)
+		{
+            deathDialogues[_currentDeathDialogue].Start();
+            _currentDeathDialogue++;
+        }
 	}
 
 	/// <summary>

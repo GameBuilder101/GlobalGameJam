@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="NarratorScript" load_steps=2 format=3 uid="uid://dlmxgsgldicvo"]
+
+[ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_pq2q4"]
+
+[resource]
+script = ExtResource("1_pq2q4")
+Lines = PackedStringArray("[wave amp=50.0 freq=5.0 connected=1]Hahaha![/wave] I can only imagine your face right now.")
+Voices = null

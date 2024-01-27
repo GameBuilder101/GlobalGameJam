@@ -5,7 +5,7 @@ public partial class NarratorDialogueTrigger : Area2D
     private bool _triggered;
 
     [Export]
-    public string text;
+    public NarratorScript dialogue;
 
     public override void _Ready()
 	{
@@ -17,6 +17,6 @@ public partial class NarratorDialogueTrigger : Area2D
         if (_triggered || !(body is Player))
             return;
         _triggered = true;
-        NarratorTextLabel.Self.SetText(text);
+        dialogue.Start();
     }
 }

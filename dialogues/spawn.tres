@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="NarratorScript" load_steps=2 format=3 uid="uid://khfdve6vatb5"]
+
+[ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_ah7ag"]
+
+[resource]
+script = ExtResource("1_ah7ag")
+Lines = PackedStringArray("Hello Player! Welcome to my game! I, the developer and narrator, shall guide you through my spectacular adventure!")
+Voices = null

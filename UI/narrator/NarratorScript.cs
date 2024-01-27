@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 
 [GlobalClass]
 public partial class NarratorScript : Resource
@@ -20,12 +21,17 @@ public partial class NarratorScript : Resource
 	}
 	
 	public bool StartRespectful() {
-		if (NarratorAudio.Self.Playing) {
+		if (this.Available()) {
 			return false;
 		}
 		this.Start();
 		return true;
 	}
+
+	public bool Available() {
+		return NarratorAudio.Self.Playing;
+	}
+	
 	
 	public void Next() {
 		if (!Object.ReferenceEquals(NarratorAudio.Self.OnScript, this)) {

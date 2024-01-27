@@ -117,6 +117,7 @@ public partial class Enemy : CharacterBody2D
 
 	private void SetCollisionEnabled(bool value)
 	{
+		GD.Print(value);
 		// Stupid stinky ugly meanie code deferred disable is cring
 		foreach (CollisionShape2D collision in _collision)
 			collision.SetDeferred("disabled", !value);
