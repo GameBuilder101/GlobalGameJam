@@ -12,7 +12,17 @@ public partial class NarratorScript : Resource
 	
 	private int On = 0;
 	
-	public void StartOver() {
+	public void Start() {
+		this.On = 0;
+		NarratorAudio.Self.OnScript = this;
+		NarratorAudio.Self.Stop();
+		this.Next();
+	}
+	
+	public void StartRespectful() {
+		if (NarratorAudio.Self.Playing) {
+			return;
+		}
 		this.On = 0;
 		NarratorAudio.Self.OnScript = this;
 		NarratorAudio.Self.Stop();
