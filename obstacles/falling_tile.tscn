@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtuy5vskpyg3l"]
+
+[ext_resource type="Script" path="res://obstacles/FallingTile.cs" id="1_bg8mf"]
+[ext_resource type="Texture2D" uid="uid://b716ela2egc0s" path="res://obstacles/falling_tile.png" id="2_ulc1k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8a5y"]
+size = Vector2(120, 150)
+
+[node name="Falling Tile" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_bg8mf")
+fallGravity = 20.0
+maxFallVelocity = 600.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ulc1k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_c8a5y")
