@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://2b3skik47boy"]
+[gd_scene load_steps=48 format=3 uid="uid://2b3skik47boy"]
 
 [ext_resource type="TileSet" uid="uid://bb5l2myi71tee" path="res://level/tile_set.tres" id="1_5l28f"]
 [ext_resource type="Script" path="res://level/Level.cs" id="1_mpqb3"]
@@ -33,9 +33,10 @@
 [ext_resource type="Script" path="res://level/SlideVisualTrigger.cs" id="26_ys276"]
 [ext_resource type="Texture2D" uid="uid://djc65byrd7wk2" path="res://level/background_0.png" id="31_2gm68"]
 [ext_resource type="Texture2D" uid="uid://r7a5ecty28hf" path="res://level/background_1.png" id="32_x0kcd"]
-[ext_resource type="Resource" uid="uid://dsyyta1bkelki" path="res://dialogues/no_checkpoint.tres" id="32_y85ns"]
+[ext_resource type="Resource" path="res://dialogues/no_checkpoint.tres" id="32_y85ns"]
 [ext_resource type="Texture2D" uid="uid://bo3ygbh3842ii" path="res://level/background_2.png" id="33_cg1fe"]
 [ext_resource type="Texture2D" uid="uid://61o51fjahq20" path="res://level/background_3.png" id="34_fmjo3"]
+[ext_resource type="AudioStream" uid="uid://i2x7s56h2pfm" path="res://audio/Goofball_March2.wav" id="37_tfxla"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lprav"]
 
@@ -294,11 +295,9 @@ reset = false
 position = Vector2(14040, -60)
 shape = SubResource("RectangleShape2D_0s6ny")
 
-[node name="Slide Checkpoint Trigger" type="Area2D" parent="Triggers" node_paths=PackedStringArray("slideTarget", "targetPosition")]
+[node name="Slide Checkpoint Trigger" type="Area2D" parent="Triggers"]
 collision_mask = 2
 script = ExtResource("26_ys276")
-slideTarget = NodePath("../../Decor/Checkpoint")
-targetPosition = NodePath("Node2D")
 duration = 2.0
 reset = false
 
@@ -616,6 +615,12 @@ centered = false
 position = Vector2(32080, 0)
 texture = ExtResource("34_fmjo3")
 centered = false
+
+[node name="GoofballMarch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("37_tfxla")
+volume_db = -5.0
+
+[connection signal="finished" from="GoofballMarch" to="." method="_on_goofball_march_finished"]
 
 [editable path="Player"]
 [editable path="Falling Tiles/Falling Ceiling"]
