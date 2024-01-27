@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://ch2d8wcs61tok"]
+
+[ext_resource type="Script" path="res://obstacles/FallingTile.cs" id="1_jqk5s"]
+[ext_resource type="Texture2D" uid="uid://b716ela2egc0s" path="res://obstacles/falling_tile.png" id="2_fekxe"]
+[ext_resource type="Script" path="res://level/KillTrigger.cs" id="3_ai5f5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6p8sl"]
+size = Vector2(480, 1320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7ar2"]
+size = Vector2(480, 120)
+
+[node name="Falling Ceiling" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_jqk5s")
+fallGravity = 10.0
+maxFallVelocity = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 540)
+shape = SubResource("RectangleShape2D_6p8sl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-180, -60)
+texture = ExtResource("2_fekxe")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-60, -60)
+texture = ExtResource("2_fekxe")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(60, -60)
+texture = ExtResource("2_fekxe")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(180, -60)
+texture = ExtResource("2_fekxe")
+
+[node name="Kill Trigger" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("3_ai5f5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Trigger"]
+position = Vector2(0, -60)
+shape = SubResource("RectangleShape2D_w7ar2")

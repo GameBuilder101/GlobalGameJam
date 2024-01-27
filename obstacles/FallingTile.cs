@@ -7,6 +7,8 @@ public partial class FallingTile : Area2D
 	[Export]
 	public float maxFallVelocity = 1000.0f;
     private float _currentFallVelocity;
+    [Export]
+    private Node2D _targetDistance;
 
     private Vector2 _startPosition;
 
@@ -28,7 +30,10 @@ public partial class FallingTile : Area2D
             _currentFallVelocity += fallGravity * (float)delta;
             if (_currentFallVelocity > fallGravity)
                 _currentFallVelocity = fallGravity;
-            Position = new Vector2(Position.X, Position.Y + _currentFallVelocity);
+            Vector2 newPos = new Vector2(Position.X, Position.Y + _currentFallVelocity);
+            if (_targetDistance != null && newPos.Y > _targetDistance.Position.Y)
+                newPos.Y = _targetDistance.Position.Y;
+            Position = newPos;
         }
 	}
 
