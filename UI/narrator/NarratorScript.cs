@@ -23,10 +23,7 @@ public partial class NarratorScript : Resource
 		if (NarratorAudio.Self.Playing) {
 			return;
 		}
-		this.On = 0;
-		NarratorAudio.Self.OnScript = this;
-		NarratorAudio.Self.Stop();
-		this.Next();
+		this.Start();
 	}
 	
 	public void Next() {
