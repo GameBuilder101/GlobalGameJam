@@ -14,10 +14,8 @@ public partial class Player : CharacterBody2D
 	public float gravity = 200.0f;
 	private bool _doubleJumped;
 
-	/// <summary>
-	/// The position of the player used to reset when dying.
-	/// </summary>
-	private Vector2 _startPosition;
+	[Export]
+	public Node2D respawnPoint;
 
 	public bool IsDead { get; private set; }
     /// <summary>
@@ -33,8 +31,6 @@ public partial class Player : CharacterBody2D
     {
         base._Ready();
 		AddToGroup(Level.ResetableGroup);
-
-		_startPosition = Position;
     }
 
     public override void _PhysicsProcess(double delta)
@@ -92,7 +88,7 @@ public partial class Player : CharacterBody2D
 
     public void Reset(int newDeathCount)
     {
-		Position = _startPosition;
+		Position = respawnPoint.Position;
 		Show();
         IsDead = false;
         _resetDelay = 1.0;

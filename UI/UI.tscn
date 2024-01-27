@@ -26,7 +26,7 @@ scroll_active = false
 autowrap_mode = 2
 script = ExtResource("1_dlqrc")
 Background = NodePath("..")
-Delay = 0.05
+Delay = 0.04
 
 [node name="NarratorAudio" type="AudioStreamPlayer" parent="."]
 script = ExtResource("2_xwwof")

@@ -12,6 +12,9 @@ public partial class Camera : Camera2D
 	private float _xOffset;
 	private bool _removeOffset;
 
+	[Export]
+	private float _smoothingSpeed = 4.0f;
+
     [Export]
     private float _yBaseline;
 	[Export]
@@ -39,6 +42,8 @@ public partial class Camera : Camera2D
 		else if (y > _yExtremeMax)
 			y = _yExtremeMax;
 
-		Position = new Vector2(_player.Position.X + xOffset, y + _yOffset);
+		Vector2 targetPosition = new Vector2(_player.Position.X + xOffset, y + _yOffset);
+
+		Position = Position.MoveToward(targetPosition, _smoothingSpeed * (float)delta * Position.DistanceTo(targetPosition));
     }
 }
