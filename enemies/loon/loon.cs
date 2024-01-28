@@ -33,7 +33,7 @@ public partial class loon : CharacterBody2D
 		Vector2 addingVelocity = Vector2.Zero;
 		
 		float distance = this.Position.DistanceTo(this.chasing.Position);
-		if (distance < 600) {
+		if (distance < 900) {
 			float Dy = (this.chasing.Position.Y - this.Position.Y) / 1.5f;
 			if (Math.Abs(Dy) > 300) {
 				addingVelocity.Y = (Dy > 0) ? 1 : -1;
