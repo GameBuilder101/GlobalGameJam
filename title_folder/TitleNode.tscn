@@ -47,8 +47,8 @@ theme_override_fonts/font = ExtResource("2_pwyi2")
 theme_override_font_sizes/font_size = 50
 text = "Credits"
 
-[connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="finished" from="Start_To_Suffer" to="." method="_on_start_to_suffer_finished"]

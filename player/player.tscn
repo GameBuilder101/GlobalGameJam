@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ca8tblhg3tw5u"]
+[gd_scene load_steps=13 format=3 uid="uid://ca8tblhg3tw5u"]
 
 [ext_resource type="Script" path="res://player/Player.cs" id="1_c4u3k"]
 [ext_resource type="Texture2D" uid="uid://c6qcguluqak5x" path="res://player/player_0.png" id="2_mm61o"]
@@ -10,11 +10,12 @@
 [ext_resource type="Script" path="res://player/DeadParticle.cs" id="7_o7dwx"]
 [ext_resource type="AudioStream" uid="uid://ponq7ntom040" path="res://audio/Player_Death_SE.mp3" id="9_4kgxs"]
 [ext_resource type="AudioStream" uid="uid://b6hkd1huf7qit" path="res://audio/jump.wav" id="10_irqrf"]
+[ext_resource type="AudioStream" uid="uid://cu2avth4xxf41" path="res://audio/goose.wav" id="11_f6w7k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24e5e"]
 size = Vector2(105, 180)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("idleSprite", "movingSprites", "head", "body", "DeathSound", "JumpSound", "_goose")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("idleSprite", "movingSprites", "head", "body", "DeathSound", "JumpSound", "_goose", "_gooseAudio")]
 collision_layer = 2
 script = ExtResource("1_c4u3k")
 speed = 800.0
@@ -28,6 +29,7 @@ body = NodePath("DeadBody")
 DeathSound = NodePath("DeathSound")
 JumpSound = NodePath("JumpSound")
 _goose = NodePath("Goose")
+_gooseAudio = NodePath("GooseSound")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -90)
@@ -87,3 +89,7 @@ stream = ExtResource("9_4kgxs")
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_irqrf")
+volume_db = -15.546
+
+[node name="GooseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_f6w7k")

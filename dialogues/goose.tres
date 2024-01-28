@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NarratorScript" load_steps=3 format=3 uid="uid://dyo4mbmkj3d6p"]
+
+[ext_resource type="AudioStream" uid="uid://bu7e3j5gou1mg" path="res://audio/narrator_speak.wav" id="1_lai84"]
+[ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_r5fhp"]
+
+[resource]
+script = ExtResource("1_r5fhp")
+Lines = PackedStringArray("Welp, I told you to look out for [color=#ff1a3c][wave amp=50.0 freq=5.0 connected=1][shake rate=20.0 level=20 connected=1]The Goose[/shake][/wave][/color].", "What? Did you think I meant the duck?", "Fool!", "[shake rate=20.0 level=20 connected=1]Mwahahahaha!!![/shake]", "Well, I guess I should give you a \"victory\" anyway...", "...", "You win. The end!")
+Voices = null
+_speechBlipAudio = ExtResource("1_lai84")

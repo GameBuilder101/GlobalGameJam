@@ -62,6 +62,8 @@ public partial class Player : CharacterBody2D
     /// Goose.
     /// </summary>
     private bool _gotGoosed;
+	[Export]
+	private AudioStreamPlayer _gooseAudio;
 
     public override void _Ready()
 	{
@@ -79,7 +81,7 @@ public partial class Player : CharacterBody2D
 		if (_currentGooseTime >= 0.0)
 		{
 			_currentGooseTime += delta;
-			_goose.Position = new Vector2(90.0f, 0.0f).Lerp(new Vector2(-90.0f, 0.0f), (float)(_currentGooseTime / _gooseDuration));
+			_goose.Position = new Vector2(2400.0f, 0.0f).Lerp(new Vector2(-2400.0f, 0.0f), (float)(_currentGooseTime / _gooseDuration));
 			if (_currentGooseTime / _gooseDuration >= 0.5 && !_gotGoosed) // Get goosed
 			{
 				_gotGoosed = true;
@@ -208,5 +210,6 @@ public partial class Player : CharacterBody2D
     {
 		_currentGooseTime = 0.0;
 		_goose.Show();
+		_gooseAudio.Play();
 	}
 }
