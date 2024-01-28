@@ -15,6 +15,8 @@ public partial class Level : Node2D
 	public Godot.Collections.Array<NarratorScript> deathDialogues;
 	private int _currentDeathDialogue;
 
+	private bool _playedSlide;
+
 	public override void _Ready()
 	{
 		base._Ready();
@@ -70,6 +72,14 @@ public partial class Level : Node2D
 	{
 		GetTree().CallGroup(ResetableGroup, "Reset", player.DeathCount);
 	}
+
+    public void _on_checkpoint_slide_trigger_body_entered(Node2D body)
+    {
+		if (_playedSlide)
+			return;
+		_playedSlide = true;
+        GetNode<AudioStreamPlayer>("CheckpointSlide").Play();
+    }
 
     public void _on_duck_reveal_trigger_body_entered(Node2D body)
     {

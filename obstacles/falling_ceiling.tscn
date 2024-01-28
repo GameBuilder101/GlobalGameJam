@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ch2d8wcs61tok"]
+[gd_scene load_steps=7 format=3 uid="uid://ch2d8wcs61tok"]
 
 [ext_resource type="Script" path="res://obstacles/FallingTile.cs" id="1_jqk5s"]
 [ext_resource type="Texture2D" uid="uid://b716ela2egc0s" path="res://obstacles/falling_tile.png" id="2_fekxe"]
 [ext_resource type="Script" path="res://level/KillTrigger.cs" id="3_ai5f5"]
+[ext_resource type="AudioStream" uid="uid://c15tu3200cm25" path="res://audio/falling_ceiling.wav" id="4_x28wo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6p8sl"]
 size = Vector2(480, 1080)
@@ -10,11 +11,12 @@ size = Vector2(480, 1080)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7ar2"]
 size = Vector2(480, 120)
 
-[node name="Falling Ceiling" type="Area2D"]
+[node name="Falling Ceiling" type="Area2D" node_paths=PackedStringArray("_fallAudio")]
 collision_mask = 2
 script = ExtResource("1_jqk5s")
 fallGravity = 10.0
 maxFallVelocity = 100.0
+_fallAudio = NodePath("AudioStreamPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 540)
@@ -43,3 +45,6 @@ script = ExtResource("3_ai5f5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Trigger"]
 position = Vector2(0, -60)
 shape = SubResource("RectangleShape2D_w7ar2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_x28wo")

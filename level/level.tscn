@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://2b3skik47boy"]
+[gd_scene load_steps=77 format=3 uid="uid://2b3skik47boy"]
 
 [ext_resource type="TileSet" uid="uid://bb5l2myi71tee" path="res://level/tile_set.tres" id="1_5l28f"]
 [ext_resource type="Script" path="res://level/Level.cs" id="1_mpqb3"]
@@ -53,12 +53,13 @@
 [ext_resource type="Resource" uid="uid://gphwnbvj2q1m" path="res://dialogues/duck_1.tres" id="47_ulfoy"]
 [ext_resource type="AudioStream" uid="uid://nu3xqgp6mc6x" path="res://audio/Dougs_Game_Part_1.wav" id="48_8ibj2"]
 [ext_resource type="Resource" uid="uid://d0vyo1ufjjw8v" path="res://dialogues/duck_2.tres" id="48_fo6ir"]
-[ext_resource type="AudioStream" uid="uid://db3iasr3s8d8t" path="res://audio/Dougs_Game_Part_2.wav" id="49_figs6"]
+[ext_resource type="AudioStream" uid="uid://d3yt4yom8tnxv" path="res://audio/Dougs_Game_Part_2.wav" id="49_figs6"]
 [ext_resource type="Resource" uid="uid://d0743a677ck8" path="res://dialogues/duck_3.tres" id="49_q6u62"]
 [ext_resource type="Resource" uid="uid://dc2x0th4hnhhe" path="res://dialogues/duck_4.tres" id="50_2o5n1"]
 [ext_resource type="PackedScene" uid="uid://dofgpxjlyq7n6" path="res://enemies/duck/duck.tscn" id="50_sl3th"]
 [ext_resource type="AudioStream" uid="uid://bpiqfs5b5r1x3" path="res://audio/duck_reveal.mp3" id="51_4tuos"]
 [ext_resource type="Resource" uid="uid://tgcj1vwdcrux" path="res://dialogues/duck_5.tres" id="51_qgmo4"]
+[ext_resource type="AudioStream" uid="uid://cnw61rio8b2v7" path="res://audio/checkpoint_slide.wav" id="60_msivi"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lprav"]
 
@@ -507,6 +508,17 @@ position = Vector2(42060, 600)
 [node name="Max Wander7" type="Node2D" parent="Enemies"]
 position = Vector2(42180, 600)
 
+[node name="Basic Enemy4" parent="Enemies" node_paths=PackedStringArray("_minWanderPoint", "_maxWanderPoint") instance=ExtResource("6_mer51")]
+position = Vector2(39420, 780)
+_minWanderPoint = NodePath("../Min Wander8")
+_maxWanderPoint = NodePath("../Max Wander8")
+
+[node name="Min Wander8" type="Node2D" parent="Enemies"]
+position = Vector2(39180, 840)
+
+[node name="Max Wander8" type="Node2D" parent="Enemies"]
+position = Vector2(39780, 840)
+
 [node name="Moving Walls" type="Node2D" parent="."]
 
 [node name="Wall Trigger" type="Area2D" parent="Moving Walls" node_paths=PackedStringArray("slideTarget", "targetPosition")]
@@ -841,7 +853,7 @@ player = NodePath("../../Player")
 respawnPoint = NodePath("../../Player Respawn Points/Node2D2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Checkpoint Trigger"]
-position = Vector2(-1378, 247)
+position = Vector2(25620, 330)
 shape = SubResource("RectangleShape2D_hhwwe")
 
 [node name="Duck Reveal Trigger" type="Area2D" parent="Triggers"]
@@ -1204,6 +1216,10 @@ volume_db = -11.969
 stream = ExtResource("49_figs6")
 volume_db = -11.969
 
+[node name="CheckpointSlide" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("60_msivi")
+
+[connection signal="body_entered" from="Triggers/ND No Checkpoint" to="." method="_on_checkpoint_slide_trigger_body_entered"]
 [connection signal="body_entered" from="Triggers/Checkpoint Trigger" to="." method="_on_checkpoint_trigger_body_entered"]
 [connection signal="body_entered" from="Triggers/Duck Reveal Trigger" to="." method="_on_duck_reveal_trigger_body_entered"]
 [connection signal="body_entered" from="Triggers/Duck Theme Trigger 1" to="." method="_on_duck_theme_1_trigger_body_entered"]

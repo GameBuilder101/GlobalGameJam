@@ -16,6 +16,9 @@ public partial class FallingTile : Area2D
 
     private double _delay;
 
+    [Export]
+    private AudioStreamPlayer _fallAudio;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
@@ -45,7 +48,10 @@ public partial class FallingTile : Area2D
 	public void Fall(Node2D body)
 	{
         if (body is Player && _delay <= 0.0)
+        {
             _fall = true;
+            _fallAudio.Play();
+        }
 	}
 
     public void Reset(int newDeathCount)

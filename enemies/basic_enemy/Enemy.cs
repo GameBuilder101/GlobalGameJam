@@ -34,6 +34,9 @@ public partial class Enemy : CharacterBody2D
 	private double _deathTime;
 	private double _resetDelay;
 
+	[Export]
+	private AudioStreamPlayer _deathAudio;
+
 	public override void _Ready()
 	{
 		base._Ready();
@@ -129,6 +132,8 @@ public partial class Enemy : CharacterBody2D
 		_deathTime = deathDelay;
 
 		SetCollisionEnabled(false);
+
+		_deathAudio.Play();
 	}
 
 	public void Reset(int newDeathCount)
