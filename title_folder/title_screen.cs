@@ -37,8 +37,24 @@ private void _on_quit_button_pressed()
 	GetTree().Quit();
 	// Replace with function body.
 }
+private void _on_credits_button_pressed()
+{
+	GetNode<Label>("TitlePlaceholder").Hide();
+	GetNode<Button>("StartButton").Hide();
+	GetNode<Button>("QuitButton").Hide();
+	GetNode<Button>("CreditsButton").Hide();
+	
+	
+	
+	var scene = GD.Load<PackedScene>("res://credits_folder/CreditsScreen.tscn");
+	var instance = scene.Instantiate();
+	AddChild(instance);
+}
 private void _on_start_to_suffer_finished()
 {
 		GetNode<AudioStreamPlayer>("Start_To_Suffer").Play();
 }
 }
+
+
+
