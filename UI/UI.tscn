@@ -1,22 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0q2skjqm3ygv"]
+[gd_scene load_steps=6 format=3 uid="uid://d0q2skjqm3ygv"]
 
 [ext_resource type="Script" path="res://UI/narrator/NarratorTextLabel.cs" id="1_dlqrc"]
+[ext_resource type="FontFile" uid="uid://0kyd81ryl4tf" path="res://UI/comic.ttf" id="1_qmnw1"]
 [ext_resource type="Script" path="res://UI/narrator/NarratorAudio.cs" id="2_xwwof"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gnigg"]
+bg_color = Color(0, 0, 0, 0.25098)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [sub_resource type="Theme" id="Theme_p7k3d"]
-default_font_size = 48
+default_font = ExtResource("1_qmnw1")
+default_font_size = 40
 
 [node name="Ui" type="Node2D"]
 
 [node name="Panel" type="Panel" parent="."]
-custom_minimum_size = Vector2(1920, 0)
-offset_right = 1920.0
+custom_minimum_size = Vector2(1860, 0)
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 1890.0
+offset_bottom = 150.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gnigg")
 
 [node name="NarratorText" type="RichTextLabel" parent="Panel" node_paths=PackedStringArray("Background")]
-custom_minimum_size = Vector2(1920, 0)
+custom_minimum_size = Vector2(1800, 0)
+layout_direction = 2
 layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 67.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 1830.0
+offset_bottom = 90.0
 size_flags_vertical = 2
 theme = SubResource("Theme_p7k3d")
 bbcode_enabled = true
@@ -26,7 +42,7 @@ scroll_active = false
 autowrap_mode = 2
 script = ExtResource("1_dlqrc")
 Background = NodePath("..")
-Delay = 0.04
+Delay = 0.03
 
 [node name="NarratorAudio" type="AudioStreamPlayer" parent="."]
 script = ExtResource("2_xwwof")
