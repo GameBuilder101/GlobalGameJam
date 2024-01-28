@@ -6,5 +6,4 @@
 [resource]
 script = ExtResource("1_1dwoy")
 Lines = PackedStringArray("Well I’m the god of this world, and you shall face the wrath of [color=#ff1a3c][wave amp=50.0 freq=5.0 connected=1][shake rate=20.0 level=20 connected=1]THE GOOSE![/shake][/wave][/color]")
-Voices = null
 _speechBlipAudio = ExtResource("1_mrjs2")

@@ -6,5 +6,4 @@
 [resource]
 script = ExtResource("1_jykpi")
 Lines = PackedStringArray("[wave amp=50.0 freq=5.0 connected=1]I’ll get you![/wave]")
-Voices = null
 _speechBlipAudio = ExtResource("1_w8ebl")

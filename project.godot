@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Global Game Jam"
+config/name="Doug's Game"
 run/main_scene="res://title_folder/TitleNode.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://obstacles/falling_tile.png"

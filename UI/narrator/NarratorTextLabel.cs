@@ -12,7 +12,7 @@ public partial class NarratorTextLabel : RichTextLabel
 	[Export]
 	private double Delay;
 	private double Waiting = 0;
-	public bool IsWriting { get { return VisibleCharacters != Text.Length; } }
+	public bool IsWriting { get { return VisibleCharacters < GetTotalCharacterCount(); } }
 
 	[Export]
 	private double _clearDelay = 4.0;
@@ -31,8 +31,8 @@ public partial class NarratorTextLabel : RichTextLabel
 	}
 	
 	private bool ProgressText() {
-		if (this.VisibleCharacters >= this.Text.Length) {
-			this.VisibleCharacters = this.Text.Length;
+		if (this.VisibleCharacters >= GetTotalCharacterCount()) {
+			this.VisibleCharacters = GetTotalCharacterCount();
 			return false;
 		}
 		if (this.VisibleCharacters == 0) {
@@ -50,7 +50,7 @@ public partial class NarratorTextLabel : RichTextLabel
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (VisibleCharacters >= Text.Length) {
+		if (VisibleCharacters >= GetTotalCharacterCount()) {
 
 			if (_currentClearTimer >= -1.0)
 				_currentClearTimer += delta;

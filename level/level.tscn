@@ -49,22 +49,23 @@
 [ext_resource type="Resource" uid="uid://cchum87vlpqnd" path="res://dialogues/checkpoint.tres" id="40_ytpqt"]
 [ext_resource type="Script" path="res://level/CheckpointTrigger.cs" id="41_wb8i4"]
 [ext_resource type="Script" path="res://level/AudioTrigger.cs" id="44_rapq1"]
-[ext_resource type="Resource" path="res://dialogues/duck_0.tres" id="46_54xxd"]
-[ext_resource type="Resource" path="res://dialogues/duck_1.tres" id="47_ulfoy"]
-[ext_resource type="AudioStream" uid="uid://c7d767hsufx85" path="res://audio/Dougs_Game_Part_1.wav" id="48_8ibj2"]
-[ext_resource type="Resource" path="res://dialogues/duck_2.tres" id="48_fo6ir"]
+[ext_resource type="Resource" uid="uid://cbefi00vrssdc" path="res://dialogues/duck_0.tres" id="46_54xxd"]
+[ext_resource type="Resource" uid="uid://gphwnbvj2q1m" path="res://dialogues/duck_1.tres" id="47_ulfoy"]
+[ext_resource type="AudioStream" uid="uid://nu3xqgp6mc6x" path="res://audio/Dougs_Game_Part_1.wav" id="48_8ibj2"]
+[ext_resource type="Resource" uid="uid://d0vyo1ufjjw8v" path="res://dialogues/duck_2.tres" id="48_fo6ir"]
 [ext_resource type="AudioStream" uid="uid://d3yt4yom8tnxv" path="res://audio/Dougs_Game_Part_2.wav" id="49_figs6"]
-[ext_resource type="Resource" path="res://dialogues/duck_3.tres" id="49_q6u62"]
-[ext_resource type="Resource" path="res://dialogues/duck_4.tres" id="50_2o5n1"]
+[ext_resource type="Resource" uid="uid://d0743a677ck8" path="res://dialogues/duck_3.tres" id="49_q6u62"]
+[ext_resource type="Resource" uid="uid://dc2x0th4hnhhe" path="res://dialogues/duck_4.tres" id="50_2o5n1"]
 [ext_resource type="PackedScene" uid="uid://dofgpxjlyq7n6" path="res://enemies/duck/duck.tscn" id="50_sl3th"]
 [ext_resource type="AudioStream" uid="uid://bpiqfs5b5r1x3" path="res://audio/duck_reveal.mp3" id="51_4tuos"]
-[ext_resource type="Resource" path="res://dialogues/duck_5.tres" id="51_qgmo4"]
+[ext_resource type="Resource" uid="uid://tgcj1vwdcrux" path="res://dialogues/duck_5.tres" id="51_qgmo4"]
 [ext_resource type="Script" path="res://level/GooseTrigger.cs" id="52_kog6n"]
 [ext_resource type="Resource" uid="uid://dyo4mbmkj3d6p" path="res://dialogues/goose.tres" id="53_nf6g0"]
 [ext_resource type="AudioStream" uid="uid://b4slbsa8khyo2" path="res://audio/Victory_I_Guess.wav" id="54_c72f6"]
 [ext_resource type="AudioStream" uid="uid://cnw61rio8b2v7" path="res://audio/checkpoint_slide.wav" id="60_msivi"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lprav"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvil6"]
+size = Vector2(56520, 1260)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_402fh"]
 size = Vector2(480, 1080)
@@ -145,9 +146,8 @@ collision_mask = 2
 script = ExtResource("5_rxcub")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor Kill"]
-position = Vector2(0, 1200)
-scale = Vector2(400, 1)
-shape = SubResource("WorldBoundaryShape2D_lprav")
+position = Vector2(22500, 1830)
+shape = SubResource("RectangleShape2D_kvil6")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_5l28f")
@@ -316,6 +316,13 @@ _targetDistance = NodePath("../Node2D")
 [node name="CollisionShape2D" parent="Falling Tiles/Falling Ceiling" index="0"]
 shape = SubResource("RectangleShape2D_402fh")
 
+[node name="Kill Trigger" parent="Falling Tiles/Falling Ceiling" index="5"]
+deathDialogue = ExtResource("11_2rfsy")
+
+[node name="CollisionShape2D" parent="Falling Tiles/Falling Ceiling/Kill Trigger" index="0"]
+position = Vector2(238.5, -60)
+shape = SubResource("RectangleShape2D_43oxp")
+
 [node name="Sprite2D5" type="Sprite2D" parent="Falling Tiles/Falling Ceiling"]
 position = Vector2(299, -60)
 texture = ExtResource("27_nqgsw")
@@ -331,13 +338,6 @@ texture = ExtResource("27_nqgsw")
 [node name="Sprite2D8" type="Sprite2D" parent="Falling Tiles/Falling Ceiling"]
 position = Vector2(655, -60)
 texture = ExtResource("27_nqgsw")
-
-[node name="Kill Trigger" parent="Falling Tiles/Falling Ceiling" index="9"]
-deathDialogue = ExtResource("11_2rfsy")
-
-[node name="CollisionShape2D" parent="Falling Tiles/Falling Ceiling/Kill Trigger" index="0"]
-position = Vector2(238.5, -60)
-shape = SubResource("RectangleShape2D_43oxp")
 
 [node name="Node2D" type="Node2D" parent="Falling Tiles"]
 position = Vector2(14040, 480)
