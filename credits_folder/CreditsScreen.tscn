@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://ti56pvb1m6ie"]
+
+[ext_resource type="Script" path="res://credits_folder/credits_screen.cs" id="1_0pxfd"]
+[ext_resource type="FontFile" uid="uid://clq4nkcyc4vs4" path="res://UI/comicbd.ttf" id="1_lgw1l"]
+
+[node name="CreditsScreen" type="Node2D"]
+script = ExtResource("1_0pxfd")
+
+[node name="Contributors" type="Label" parent="."]
+offset_left = 12.0
+offset_top = 92.0
+offset_right = 793.0
+offset_bottom = 529.0
+theme_override_fonts/font = ExtResource("1_lgw1l")
+theme_override_font_sizes/font_size = 60
+text = "Contributors:
+Gage M. (GameBuilder101)
+Joshua W. (jDoubleU)
+Lyx H. (Lyryx)
+Giovanni P. (TheGzer)"
+horizontal_alignment = 1
+
+[node name="Audio" type="Label" parent="."]
+offset_left = 818.0
+offset_top = 377.0
+offset_right = 1893.0
+offset_bottom = 614.0
+theme_override_fonts/font = ExtResource("1_lgw1l")
+theme_override_font_sizes/font_size = 35
+text = "Audio From:
+'Poof of Smoke' by [Pixabay] via Pixabay
+'Ough!' by [Pixabay] via Pixabay
+'Boom + Reverb' by [BennetFilmTeacher] via Freesound"
+horizontal_alignment = 1
+
+[node name="Thanks" type="Label" parent="."]
+offset_left = 289.0
+offset_top = 676.0
+offset_right = 1671.0
+offset_bottom = 1021.0
+theme_override_fonts/font = ExtResource("1_lgw1l")
+theme_override_font_sizes/font_size = 80
+text = "Special Thanks to
+Jeremy & The Staff at Salsarita's
+for Moral Support"
+horizontal_alignment = 1
+
+[node name="Software" type="Label" parent="."]
+offset_left = 1146.0
+offset_top = 52.0
+offset_right = 1532.0
+offset_bottom = 345.0
+theme_override_fonts/font = ExtResource("1_lgw1l")
+theme_override_font_sizes/font_size = 35
+text = "Software Used:
+Godot
+Bandlab
+Github
+Audacity"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 30.0
+offset_top = 945.0
+offset_right = 259.0
+offset_bottom = 1054.0
+theme_override_fonts/font = ExtResource("1_lgw1l")
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_button_pressed"]
