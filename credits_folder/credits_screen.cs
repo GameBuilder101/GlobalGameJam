@@ -14,7 +14,6 @@ public partial class credits_screen : Node2D
 	}
 	private void _on_button_pressed()
 	{
-		GD.Print("");
 		GetTree().ChangeSceneToFile("res://title_folder/TitleNode.tscn");
 	}
 }
