@@ -764,7 +764,6 @@ position = Vector2(26340, 600)
 [node name="Background" type="Node2D" parent="."]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
-visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 1.2
 
