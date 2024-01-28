@@ -1,5 +1,6 @@
 using Godot;
 using System.Diagnostics;
+using System;
 
 public partial class Player : CharacterBody2D
 {
@@ -21,6 +22,10 @@ public partial class Player : CharacterBody2D
 	private Sprite2D idleSprite;
 	[Export]
 	private Sprite2D[] movingSprites;
+	[Export]
+	private DeadParticle head;
+	[Export]
+	private DeadParticle body;
 	private int _currentMovingSprite;
 	private double _currentSpriteTimer;
 
@@ -60,7 +65,11 @@ public partial class Player : CharacterBody2D
 	}
     public override void _Process(double delta)
     {
-        base._Process(delta);
+		if (this.IsDead) {
+			
+		} else {
+			base._Process(delta);
+		}
 
 		if (_currentGooseTime >= 0.0)
 		{
@@ -76,6 +85,9 @@ public partial class Player : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
 	{
+		if (this.IsDead) {
+			return;
+		}
 		Vector2 velocity = Velocity;
 
 		if (IsOnFloor()) // Reset double jump
@@ -155,15 +167,29 @@ public partial class Player : CharacterBody2D
 	{
         IsDead = true;
         Velocity = Vector2.Zero;
-        Hide();
+        this.SetVisible(false);
+		Random rnd = new Random();
+		this.head.Shoot((float) (Math.PI + 2 * (rnd.NextDouble() - 0.5)));
+		this.body.Shoot((float) (Math.PI + 2 * (rnd.NextDouble() - 0.5)));
     }
 
 	public void Reset(int newDeathCount)
 	{
 		Position = respawnPoint.Position;
-		Show();
+		this.SetVisible(true);
 		IsDead = false;
 		_resetDelay = 1.0;
+	}
+	
+	private void SetVisible(bool val) {
+		this.idleSprite.SetDeferred("visible", val);
+		if (!val) {
+			foreach (Sprite2D sprite in this.movingSprites) {
+				sprite.Hide();
+			}
+		}
+		this.head.SetDeferred("visible", !val);
+		this.body.SetDeferred("visible", !val);
 	}
 
     /// <summary>
