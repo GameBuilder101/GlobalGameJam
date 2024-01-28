@@ -7,11 +7,30 @@
     <RootNamespace>GlobalGameJam</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="audio\Dougs_Game_Part_1.wav" />
+    <Content Include="audio\Dougs_Game_Part_2.wav" />
+    <Content Include="audio\Goofball_March.wav" />
+    <Content Include="audio\Goofball_March2.wav" />
+    <Content Include="audio\Goofball_March3.wav" />
+    <Content Include="audio\narrator_speak.wav" />
+    <Content Include="audio\narrator_speak_crazy.wav" />
+    <Content Include="audio\narrator_speak_evil.wav" />
+    <Content Include="audio\Start_To_Suffer.wav" />
     <Content Include="enemies\duck\duck.png" />
     <Content Include="enemies\duck\god_himself.png" />
+    <Content Include="enemies\tortle\tortle.png" />
     <Content Include="title_screen\ADD TITLE SCREEN STUFF HERE LOL.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="audio\Dougs_Game_Part_1.wav.import" />
+    <None Include="audio\Dougs_Game_Part_2.wav.import" />
+    <None Include="audio\Goofball_March.wav.import" />
+    <None Include="audio\Goofball_March2.wav.import" />
+    <None Include="audio\Goofball_March3.wav.import" />
+    <None Include="audio\narrator_speak.wav.import" />
+    <None Include="audio\narrator_speak_crazy.wav.import" />
+    <None Include="audio\narrator_speak_evil.wav.import" />
+    <None Include="audio\Start_To_Suffer.wav.import" />
     <None Include="dialogues\death_0.tres" />
     <None Include="dialogues\death_1.tres" />
     <None Include="dialogues\death_10.tres" />
@@ -31,5 +50,7 @@
     <None Include="dialogues\wrong_way.tres" />
     <None Include="enemies\duck\duck.png.import" />
     <None Include="enemies\duck\god_himself.png.import" />
+    <None Include="enemies\tortle\tortle.png.import" />
+    <None Include="enemies\tortle\tortle.tscn" />
   </ItemGroup>
 </Project>
