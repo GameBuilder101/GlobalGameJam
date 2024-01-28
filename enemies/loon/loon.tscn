@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://level/KillTrigger.cs" id="3_qg32h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6u75o"]
-size = Vector2(120, 60)
+size = Vector2(60, 97)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xcupr"]
 size = Vector2(60, 120)
@@ -22,17 +22,16 @@ position = Vector2(0, 90)
 texture = ExtResource("2_tqy81")
 
 [node name="KillArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_qg32h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea"]
-position = Vector2(0, 30)
+position = Vector2(0, 187)
 shape = SubResource("RectangleShape2D_6u75o")
-disabled = true
 
 [node name="DeathArea" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, 187.46)
 
 [node name="DeathCollision" type="CollisionShape2D" parent="DeathArea"]

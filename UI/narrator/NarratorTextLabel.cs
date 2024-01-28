@@ -12,9 +12,7 @@ public partial class NarratorTextLabel : RichTextLabel
 	[Export]
 	private double Delay;
 	private double Waiting = 0;
-	public bool IsWriting { get { return Text != TextTotal; } }
-	
-	private String TextTotal = "";
+	public bool IsWriting { get { return VisibleCharacters != Text.Length; } }
 
 	[Export]
 	private double _clearDelay = 4.0;
@@ -33,26 +31,26 @@ public partial class NarratorTextLabel : RichTextLabel
 	}
 	
 	private bool ProgressText() {
-		if (this.Text.Length >= this.TextTotal.Length - 1) {
-			this.Text = this.TextTotal;
+		if (this.VisibleCharacters >= this.Text.Length) {
+			this.VisibleCharacters = this.Text.Length;
 			return false;
 		}
-		if (this.Text == "") {
+		if (this.VisibleCharacters == 0) {
 			this.Background.Size = new Vector2(this.Size.X, this.Size.Y + 60.0f);
 		}
-		if (this.TextTotal[this.Text.Length] == '[') {
-			this.Text = this.TextTotal.Substring(0, this.TextTotal.IndexOf(']', this.Text.Length) + 1);
-			return true;
-		} 
+		//if (this.Text[this.VisibleCharacters] == '[') {
+			//this.VisibleCharacters = this.Text.IndexOf(']', this.VisibleCharacters) + 1;
+			//return true;
+		//} 
 		this.Waiting = this.Delay;
-		this.Text = this.TextTotal.Substring(0, this.Text.Length + 1);
+		this.VisibleCharacters++;
 		return false;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (Text == TextTotal) {
+		if (VisibleCharacters >= Text.Length) {
 
 			if (_currentClearTimer >= -1.0)
 				_currentClearTimer += delta;
@@ -61,7 +59,6 @@ public partial class NarratorTextLabel : RichTextLabel
 			{
 				_currentClearTimer = -1.0;
 				Text = "";
-				TextTotal = "";
 				OnScript.Next();
 				OnResized();
 
@@ -79,13 +76,13 @@ public partial class NarratorTextLabel : RichTextLabel
 	
 	public void SetText(String text, AudioStream blip) {
         _currentClearTimer = 0.0f;
-        this.Text = "";
+        this.Text = text;
 		if (text == "") {
 			this.Background.Size = new Vector2(0, 0);
 		} else {
 			this.Background.Size = new Vector2(this.Size.X, this.Size.Y + 60.0f);
 		}
-		this.TextTotal = text;
+		this.VisibleCharacters = 0;
 		_speechBlipPlayer.Stream = blip;
     }
 	

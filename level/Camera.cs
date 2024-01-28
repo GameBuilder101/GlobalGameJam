@@ -28,6 +28,9 @@ public partial class Camera : Camera2D
 
     public override void _PhysicsProcess(double delta)
 	{
+		if (_player.IsDead)
+			return;
+
         Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 		if (direction.X != 0.0f)
             _removeOffset = direction.X < 0;

@@ -5,6 +5,5 @@
 
 [resource]
 script = ExtResource("1_r5fhp")
-Lines = PackedStringArray("Welp, I told you to look out for [color=#ff1a3c][wave amp=50.0 freq=5.0 connected=1][shake rate=20.0 level=20 connected=1]The Goose[/shake][/wave][/color].", "What? Did you think I meant the duck?", "Fool!", "[shake rate=20.0 level=20 connected=1]Mwahahahaha!!![/shake]", "Well, I guess I should give you a \"victory\" anyway...", "...", "You win. The end!")
-Voices = null
+Lines = PackedStringArray("Welp, I told you to look out for [color=#ff1a3c][wave amp=50.0 freq=5.0 connected=1][shake rate=20.0 level=20 connected=1]The Goose[/shake][/wave][/color].", "What? Did you think I meant the duck? Fool! [shake rate=20.0 level=20 connected=1]Mwahahahaha!!![/shake]", "Well, I guess I should give you a \"victory\" anyway... You win. The end!")
 _speechBlipAudio = ExtResource("1_lai84")
