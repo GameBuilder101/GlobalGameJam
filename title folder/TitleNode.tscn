@@ -34,8 +34,8 @@ text = "Quit"
 stream = ExtResource("2_dpffg")
 volume_db = -10.0
 
-[connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_button_2_pressed"]
 [connection signal="finished" from="Start_To_Suffer" to="." method="_on_start_to_suffer_finished"]

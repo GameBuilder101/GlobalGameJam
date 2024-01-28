@@ -36,7 +36,7 @@
 [ext_resource type="Resource" path="res://dialogues/no_checkpoint.tres" id="32_y85ns"]
 [ext_resource type="Texture2D" uid="uid://bo3ygbh3842ii" path="res://level/background_2.png" id="33_cg1fe"]
 [ext_resource type="Texture2D" uid="uid://61o51fjahq20" path="res://level/background_3.png" id="34_fmjo3"]
-[ext_resource type="AudioStream" uid="uid://i2x7s56h2pfm" path="res://audio/Goofball_March2.wav" id="37_tfxla"]
+[ext_resource type="AudioStream" uid="uid://4c0vy1yxr7go" path="res://audio/Goofball_March3.wav" id="37_n18xb"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lprav"]
 
@@ -617,7 +617,7 @@ texture = ExtResource("34_fmjo3")
 centered = false
 
 [node name="GoofballMarch" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("37_tfxla")
+stream = ExtResource("37_n18xb")
 volume_db = -5.0
 
 [connection signal="finished" from="GoofballMarch" to="." method="_on_goofball_march_finished"]
