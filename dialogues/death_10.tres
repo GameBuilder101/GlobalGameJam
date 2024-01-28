@@ -6,5 +6,4 @@
 [resource]
 script = ExtResource("1_yaih2")
 Lines = PackedStringArray("Fool. [shake rate=20.0 level=20 connected=1]FOOL!!![/shake]")
-Voices = null
 _speechBlipAudio = ExtResource("1_3rsey")

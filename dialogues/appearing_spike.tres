@@ -6,5 +6,4 @@
 [resource]
 script = ExtResource("1_4ugba")
 Lines = PackedStringArray("[color=#ff1a3c][shake rate=20.0 level=20 connected=1]GET SPIKED![/shake][/color]")
-Voices = null
 _speechBlipAudio = ExtResource("1_ctf4o")

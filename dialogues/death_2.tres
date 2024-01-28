@@ -6,5 +6,4 @@
 [resource]
 script = ExtResource("1_pilfd")
 Lines = PackedStringArray("Dang. So close!")
-Voices = null
 _speechBlipAudio = ExtResource("1_c48h0")

@@ -6,5 +6,4 @@
 [resource]
 script = ExtResource("1_r8nkr")
 Lines = PackedStringArray("Oh, you don\'t need a checkpoint yet. You\'re doing [i]fiiiine...[/i]")
-Voices = null
 _speechBlipAudio = ExtResource("1_tbc1x")

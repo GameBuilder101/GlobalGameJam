@@ -6,5 +6,4 @@
 [resource]
 script = ExtResource("1_mhodk")
 Lines = PackedStringArray("Press space or up arrow to jump!")
-Voices = null
 _speechBlipAudio = ExtResource("1_mnc1x")

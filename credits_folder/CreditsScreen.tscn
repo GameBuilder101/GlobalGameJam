@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ti56pvb1m6ie"]
+[gd_scene load_steps=13 format=3 uid="uid://ti56pvb1m6ie"]
 
 [ext_resource type="Script" path="res://credits_folder/credits_screen.cs" id="1_0pxfd"]
 [ext_resource type="FontFile" uid="uid://clq4nkcyc4vs4" path="res://UI/comicbd.ttf" id="1_lgw1l"]
@@ -6,29 +6,36 @@
 [ext_resource type="Texture2D" uid="uid://r7a5ecty28hf" path="res://level/background_1.png" id="3_ea45o"]
 [ext_resource type="Texture2D" uid="uid://bo3ygbh3842ii" path="res://level/background_2.png" id="4_dcj46"]
 [ext_resource type="Texture2D" uid="uid://61o51fjahq20" path="res://level/background_3.png" id="5_vfwrs"]
-[ext_resource type="Texture2D" uid="uid://b716ela2egc0s" path="res://obstacles/falling_tile.png" id="7_ku6v8"]
+[ext_resource type="Texture2D" uid="uid://bsmoqkkwpootc" path="res://UI/button_background.png" id="7_w2lif"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g8hjd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3h1lt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hwvfs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cpm6x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2pwyv"]
 
 [node name="CreditsScreen" type="Node2D"]
 script = ExtResource("1_0pxfd")
 
-[node name="Sky2" type="Sprite2D" parent="."]
-position = Vector2(961.229, 543.25)
-scale = Vector2(0.557425, 1.00324)
+[node name="Sky" type="Sprite2D" parent="."]
+position = Vector2(900, 540)
+scale = Vector2(1, 1.003)
 texture = ExtResource("2_qtv0h")
 
 [node name="Cloud Top" type="Sprite2D" parent="."]
-position = Vector2(666.5, 543.5)
-scale = Vector2(0.728198, 1.00833)
+position = Vector2(900, 540)
 texture = ExtResource("3_ea45o")
 
 [node name="Cloud Middle" type="Sprite2D" parent="."]
-position = Vector2(670, 545.75)
-scale = Vector2(0.727325, 1.00602)
+position = Vector2(900, 540)
 texture = ExtResource("4_dcj46")
 
 [node name="Cloud Bottom" type="Sprite2D" parent="."]
-position = Vector2(665, 545)
-scale = Vector2(0.729651, 1.00556)
+position = Vector2(900, 540)
 texture = ExtResource("5_vfwrs")
 
 [node name="Contributors" type="Label" parent="."]
@@ -36,6 +43,7 @@ offset_left = 12.0
 offset_top = 92.0
 offset_right = 793.0
 offset_bottom = 529.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_lgw1l")
 theme_override_font_sizes/font_size = 60
 text = "Contributors:
@@ -50,12 +58,14 @@ offset_left = 818.0
 offset_top = 377.0
 offset_right = 1893.0
 offset_bottom = 614.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_lgw1l")
 theme_override_font_sizes/font_size = 35
 text = "Audio From:
 'Poof of Smoke' by [Pixabay] via Pixabay
 'Ough!' by [Pixabay] via Pixabay
-'Boom + Reverb' by [BennetFilmTeacher] via Freesound"
+'Boom + Reverb' by [BennetFilmTeacher] via Freesound
+'Goose 2.wav' by [sarena6487528] via Freesound"
 horizontal_alignment = 1
 
 [node name="Thanks" type="Label" parent="."]
@@ -63,6 +73,7 @@ offset_left = 289.0
 offset_top = 676.0
 offset_right = 1671.0
 offset_bottom = 1021.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_lgw1l")
 theme_override_font_sizes/font_size = 80
 text = "Special Thanks to
@@ -75,6 +86,7 @@ offset_left = 1146.0
 offset_top = 52.0
 offset_right = 1532.0
 offset_bottom = 345.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_lgw1l")
 theme_override_font_sizes/font_size = 35
 text = "Software Used:
@@ -86,8 +98,8 @@ horizontal_alignment = 1
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 position = Vector2(153.75, 1002)
-scale = Vector2(2.1125, 0.889584)
-texture = ExtResource("7_ku6v8")
+scale = Vector2(1.03, 0.89)
+texture = ExtResource("7_w2lif")
 
 [node name="BackButton" type="Button" parent="."]
 offset_left = 30.0
@@ -96,6 +108,11 @@ offset_right = 277.0
 offset_bottom = 1054.0
 theme_override_fonts/font = ExtResource("1_lgw1l")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g8hjd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3h1lt")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hwvfs")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_cpm6x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2pwyv")
 text = "Back"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_button_pressed"]

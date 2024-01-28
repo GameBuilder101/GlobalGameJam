@@ -61,7 +61,7 @@
 [ext_resource type="Resource" uid="uid://tgcj1vwdcrux" path="res://dialogues/duck_5.tres" id="51_qgmo4"]
 [ext_resource type="Script" path="res://level/GooseTrigger.cs" id="52_kog6n"]
 [ext_resource type="Resource" uid="uid://dyo4mbmkj3d6p" path="res://dialogues/goose.tres" id="53_nf6g0"]
-[ext_resource type="AudioStream" uid="uid://lj2x8l0e7ei3" path="res://audio/Victory_I_Guess.wav" id="54_c72f6"]
+[ext_resource type="AudioStream" uid="uid://b4slbsa8khyo2" path="res://audio/Victory_I_Guess.wav" id="54_c72f6"]
 [ext_resource type="AudioStream" uid="uid://cnw61rio8b2v7" path="res://audio/checkpoint_slide.wav" id="60_msivi"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lprav"]
@@ -100,7 +100,7 @@ size = Vector2(120, 60)
 size = Vector2(1200, 600)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fclxh"]
-size = Vector2(240, 540)
+size = Vector2(240, 510)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cikob"]
 size = Vector2(360, 600)
@@ -802,7 +802,7 @@ script = ExtResource("11_ux0dh")
 dialogue = ExtResource("20_v7flp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/ND Falling Blocks"]
-position = Vector2(3120, 930)
+position = Vector2(3120, 945)
 shape = SubResource("RectangleShape2D_fclxh")
 
 [node name="ND Wrong Way" type="Area2D" parent="Triggers"]
