@@ -17,6 +17,9 @@ public partial class Player : CharacterBody2D
 	[Export]
 	public Node2D respawnPoint;
 
+	[Export]
+	private Sprite2D sprite;
+
 	public bool IsDead { get; private set; }
 	/// <summary>
 	/// The current death count.
@@ -59,10 +62,12 @@ public partial class Player : CharacterBody2D
 
 		// Get the input direction and handle the movement/deceleration
 		float direction = Input.GetAxis("ui_left", "ui_right");
-		if (direction != 0.0f)
+		if (direction != 0.0f) {
+			this.sprite.FlipH = direction == -1;
 			velocity.X = direction * speed;
-		else
+		} else {
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, speed);
+		}
 
 		Velocity = velocity;
 		if (IsDead)
