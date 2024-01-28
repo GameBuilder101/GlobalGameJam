@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NarratorScript" load_steps=3 format=3 uid="uid://d0vyo1ufjjw8v"]
+
+[ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_jykpi"]
+[ext_resource type="AudioStream" uid="uid://d3srv2wgibii" path="res://audio/narrator_speak_crazy.wav" id="1_w8ebl"]
+
+[resource]
+script = ExtResource("1_jykpi")
+Lines = PackedStringArray("[wave amp=50.0 freq=5.0 connected=1]I’ll get you![/wave]")
+Voices = null
+_speechBlipAudio = ExtResource("1_w8ebl")

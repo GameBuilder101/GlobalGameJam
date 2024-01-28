@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NarratorScript" load_steps=3 format=3 uid="uid://cbefi00vrssdc"]
+
+[ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_1dwoy"]
+[ext_resource type="AudioStream" uid="uid://d3srv2wgibii" path="res://audio/narrator_speak_crazy.wav" id="1_mrjs2"]
+
+[resource]
+script = ExtResource("1_1dwoy")
+Lines = PackedStringArray("Well I’m the god of this world, and you shall face the wrath of [color=#ff1a3c][wave amp=50.0 freq=5.0 connected=1][shake rate=20.0 level=20 connected=1]THE GOOSE![/shake][/wave][/color]")
+Voices = null
+_speechBlipAudio = ExtResource("1_mrjs2")

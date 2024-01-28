@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://2b3skik47boy"]
+[gd_scene load_steps=76 format=3 uid="uid://2b3skik47boy"]
 
 [ext_resource type="TileSet" uid="uid://bb5l2myi71tee" path="res://level/tile_set.tres" id="1_5l28f"]
 [ext_resource type="Script" path="res://level/Level.cs" id="1_mpqb3"]
@@ -28,6 +28,7 @@
 [ext_resource type="Resource" uid="uid://khfdve6vatb5" path="res://dialogues/spawn.tres" id="18_rj6d4"]
 [ext_resource type="Texture2D" uid="uid://beedptjgpjxp2" path="res://level/checkpoint.png" id="19_0ilsk"]
 [ext_resource type="Resource" uid="uid://b3nduxhklrttm" path="res://dialogues/jump_input.tres" id="19_fnetc"]
+[ext_resource type="Texture2D" uid="uid://c23pgqaklsayv" path="res://level/flagpole.png" id="20_4ct2h"]
 [ext_resource type="Resource" uid="uid://bqa267unh41e6" path="res://dialogues/falling_blocks.tres" id="20_v7flp"]
 [ext_resource type="Resource" uid="uid://b1ki4ohd2epl7" path="res://dialogues/wrong_way.tres" id="21_u2mgc"]
 [ext_resource type="PackedScene" uid="uid://cpn2ukkd8ii6c" path="res://enemies/tortle/tortle.tscn" id="26_5bu6y"]
@@ -48,10 +49,16 @@
 [ext_resource type="Resource" uid="uid://cchum87vlpqnd" path="res://dialogues/checkpoint.tres" id="40_ytpqt"]
 [ext_resource type="Script" path="res://level/CheckpointTrigger.cs" id="41_wb8i4"]
 [ext_resource type="Script" path="res://level/AudioTrigger.cs" id="44_rapq1"]
+[ext_resource type="Resource" uid="uid://cbefi00vrssdc" path="res://dialogues/duck_0.tres" id="46_54xxd"]
+[ext_resource type="Resource" uid="uid://gphwnbvj2q1m" path="res://dialogues/duck_1.tres" id="47_ulfoy"]
 [ext_resource type="AudioStream" uid="uid://nu3xqgp6mc6x" path="res://audio/Dougs_Game_Part_1.wav" id="48_8ibj2"]
+[ext_resource type="Resource" uid="uid://d0vyo1ufjjw8v" path="res://dialogues/duck_2.tres" id="48_fo6ir"]
 [ext_resource type="AudioStream" uid="uid://db3iasr3s8d8t" path="res://audio/Dougs_Game_Part_2.wav" id="49_figs6"]
+[ext_resource type="Resource" uid="uid://d0743a677ck8" path="res://dialogues/duck_3.tres" id="49_q6u62"]
+[ext_resource type="Resource" uid="uid://dc2x0th4hnhhe" path="res://dialogues/duck_4.tres" id="50_2o5n1"]
 [ext_resource type="PackedScene" uid="uid://dofgpxjlyq7n6" path="res://enemies/duck/duck.tscn" id="50_sl3th"]
 [ext_resource type="AudioStream" uid="uid://bpiqfs5b5r1x3" path="res://audio/duck_reveal.mp3" id="51_4tuos"]
+[ext_resource type="Resource" uid="uid://tgcj1vwdcrux" path="res://dialogues/duck_5.tres" id="51_qgmo4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lprav"]
 
@@ -148,11 +155,11 @@ rotation = -0.261799
 texture = ExtResource("7_l6dye")
 
 [node name="Checkpoint" type="Sprite2D" parent="Decor"]
-position = Vector2(10980, 480)
+position = Vector2(10980, 525)
 texture = ExtResource("19_0ilsk")
 
 [node name="Checkpoint2" type="Sprite2D" parent="Decor"]
-position = Vector2(26340, 480)
+position = Vector2(26340, 525)
 texture = ExtResource("19_0ilsk")
 
 [node name="Arrow2" type="Sprite2D" parent="Decor"]
@@ -169,6 +176,10 @@ texture = ExtResource("7_l6dye")
 position = Vector2(38400, 420)
 rotation = -3.14159
 texture = ExtResource("7_l6dye")
+
+[node name="Flagpole" type="Sprite2D" parent="Decor"]
+position = Vector2(48960, 480)
+texture = ExtResource("20_4ct2h")
 
 [node name="Spikes" type="Node2D" parent="."]
 
@@ -341,37 +352,37 @@ position = Vector2(43260, 900)
 
 [node name="Falling Ceiling2" parent="Falling Tiles" node_paths=PackedStringArray("_targetDistance") instance=ExtResource("12_4hcsf")]
 position = Vector2(38160, -240)
-fallGravity = 1.0
+fallGravity = 3.0
 _targetDistance = NodePath("../Node2D2")
 
 [node name="Falling Ceiling3" parent="Falling Tiles" node_paths=PackedStringArray("_targetDistance") instance=ExtResource("12_4hcsf")]
 position = Vector2(38640, -240)
-fallGravity = 1.0
+fallGravity = 3.0
 _targetDistance = NodePath("../Node2D2")
 
 [node name="Falling Ceiling4" parent="Falling Tiles" node_paths=PackedStringArray("_targetDistance") instance=ExtResource("12_4hcsf")]
 position = Vector2(39360, -240)
-fallGravity = 1.0
+fallGravity = 3.0
 _targetDistance = NodePath("../Node2D2")
 
 [node name="Falling Ceiling5" parent="Falling Tiles" node_paths=PackedStringArray("_targetDistance") instance=ExtResource("12_4hcsf")]
 position = Vector2(40680, -240)
-fallGravity = 1.0
+fallGravity = 3.0
 _targetDistance = NodePath("../Node2D2")
 
 [node name="Falling Ceiling6" parent="Falling Tiles" node_paths=PackedStringArray("_targetDistance") instance=ExtResource("12_4hcsf")]
 position = Vector2(41520, -240)
-fallGravity = 1.0
+fallGravity = 3.0
 _targetDistance = NodePath("../Node2D2")
 
 [node name="Falling Ceiling7" parent="Falling Tiles" node_paths=PackedStringArray("_targetDistance") instance=ExtResource("12_4hcsf")]
 position = Vector2(42480, -240)
-fallGravity = 1.0
+fallGravity = 3.0
 _targetDistance = NodePath("../Node2D2")
 
 [node name="Falling Ceiling8" parent="Falling Tiles" node_paths=PackedStringArray("_targetDistance") instance=ExtResource("12_4hcsf")]
 position = Vector2(42960, -240)
-fallGravity = 1.0
+fallGravity = 3.0
 _targetDistance = NodePath("../Node2D2")
 
 [node name="Node2D2" type="Node2D" parent="Falling Tiles"]
@@ -689,13 +700,13 @@ position = Vector2(9060, 900)
 [node name="Spike3" parent="Triggers/Spawn Spike2" instance=ExtResource("5_ms5fr")]
 position = Vector2(9180, 900)
 
-[node name="Drop Ceiling" type="Area2D" parent="Triggers" node_paths=PackedStringArray("spawnObjects")]
+[node name="Drop Ceiling Arrow" type="Area2D" parent="Triggers" node_paths=PackedStringArray("spawnObjects")]
 collision_mask = 2
 script = ExtResource("8_3o3d2")
 spawnObjects = [NodePath("../../Decor/Arrow")]
 reset = false
 
-[node name="Collision" type="CollisionShape2D" parent="Triggers/Drop Ceiling"]
+[node name="Collision" type="CollisionShape2D" parent="Triggers/Drop Ceiling Arrow"]
 position = Vector2(14040, -60)
 shape = SubResource("RectangleShape2D_0s6ny")
 
@@ -830,7 +841,7 @@ player = NodePath("../../Player")
 respawnPoint = NodePath("../../Player Respawn Points/Node2D2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Checkpoint Trigger"]
-position = Vector2(-3300, 405)
+position = Vector2(-1378, 247)
 shape = SubResource("RectangleShape2D_hhwwe")
 
 [node name="Duck Reveal Trigger" type="Area2D" parent="Triggers"]
@@ -857,6 +868,60 @@ script = ExtResource("44_rapq1")
 position = Vector2(46860, 330)
 shape = SubResource("RectangleShape2D_hhwwe")
 
+[node name="ND Duck 1" type="Area2D" parent="Triggers"]
+collision_mask = 2
+script = ExtResource("11_ux0dh")
+dialogue = ExtResource("46_54xxd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/ND Duck 1"]
+position = Vector2(28260, 240)
+shape = SubResource("RectangleShape2D_hhwwe")
+
+[node name="ND Duck 2" type="Area2D" parent="Triggers"]
+collision_mask = 2
+script = ExtResource("11_ux0dh")
+dialogue = ExtResource("47_ulfoy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/ND Duck 2"]
+position = Vector2(31860, 307)
+shape = SubResource("RectangleShape2D_hhwwe")
+
+[node name="ND Duck 3" type="Area2D" parent="Triggers"]
+collision_mask = 2
+script = ExtResource("11_ux0dh")
+dialogue = ExtResource("48_fo6ir")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/ND Duck 3"]
+position = Vector2(33840, 450)
+shape = SubResource("RectangleShape2D_hhwwe")
+
+[node name="ND Duck 4" type="Area2D" parent="Triggers"]
+collision_mask = 2
+script = ExtResource("11_ux0dh")
+dialogue = ExtResource("49_q6u62")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/ND Duck 4"]
+position = Vector2(36480, 360)
+shape = SubResource("RectangleShape2D_hhwwe")
+
+[node name="ND Duck 5" type="Area2D" parent="Triggers"]
+collision_mask = 2
+script = ExtResource("11_ux0dh")
+dialogue = ExtResource("50_2o5n1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/ND Duck 5"]
+position = Vector2(38940, 300)
+shape = SubResource("RectangleShape2D_hhwwe")
+
+[node name="ND Duck 6" type="Area2D" parent="Triggers"]
+collision_mask = 2
+script = ExtResource("11_ux0dh")
+dialogue = ExtResource("51_qgmo4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/ND Duck 6"]
+position = Vector2(41100, 270)
+shape = SubResource("RectangleShape2D_hhwwe")
+
 [node name="Player Respawn Points" type="Node2D" parent="."]
 
 [node name="Node2D" type="Node2D" parent="Player Respawn Points"]
@@ -868,7 +933,6 @@ position = Vector2(26340, 600)
 [node name="Background" type="Node2D" parent="."]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
-visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 1.2
 

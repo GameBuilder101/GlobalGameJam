@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NarratorScript" load_steps=3 format=3 uid="uid://dc2x0th4hnhhe"]
+
+[ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_irmek"]
+[ext_resource type="AudioStream" uid="uid://d3srv2wgibii" path="res://audio/narrator_speak_crazy.wav" id="1_p2w55"]
+
+[resource]
+script = ExtResource("1_irmek")
+Lines = PackedStringArray("[wave amp=50.0 freq=5.0 connected=1]You mess with the honk, you get the bonk![/wave]")
+Voices = null
+_speechBlipAudio = ExtResource("1_p2w55")

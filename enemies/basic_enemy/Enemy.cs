@@ -22,6 +22,11 @@ public partial class Enemy : CharacterBody2D
 	[Export]
 	private Node2D _deadSprite;
 	[Export]
+	private Node2D _movingSprite1;
+    [Export]
+    private Node2D _movingSprite2;
+	private double _movingSpriteTimer;
+    [Export]
 	private Godot.Collections.Array<CollisionShape2D> _collision;
 
 	[Export]
@@ -40,6 +45,7 @@ public partial class Enemy : CharacterBody2D
 	public override void _Process(double delta)
 	{
 		base._Process(delta);
+
 		if (IsDead && _deathTime > 0.0f)
 		{
 			_deathTime -= delta;
@@ -53,6 +59,16 @@ public partial class Enemy : CharacterBody2D
 			if (_resetDelay <= 0.0f)
 				SetCollisionEnabled(true);
 		}
+
+		_movingSpriteTimer += delta;
+		if (_movingSpriteTimer >= 0.5)
+		{
+			if (_movingSprite1 != null)
+				_movingSprite1.Visible = !_movingSprite1.Visible;
+            if (_movingSprite2 != null)
+                _movingSprite2.Visible = !_movingSprite2.Visible;
+			_movingSpriteTimer = 0.0;
+        }
 	}
 
 	public override void _PhysicsProcess(double delta)

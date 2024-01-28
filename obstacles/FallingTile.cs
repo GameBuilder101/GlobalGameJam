@@ -14,6 +14,8 @@ public partial class FallingTile : Area2D
 
     private bool _fall;
 
+    private double _delay;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
@@ -35,11 +37,14 @@ public partial class FallingTile : Area2D
                 newPos.Y = _targetDistance.Position.Y;
             Position = newPos;
         }
+
+        if (_delay > 0.0)
+            _delay -= delta;
 	}
 
 	public void Fall(Node2D body)
 	{
-        if (body is Player)
+        if (body is Player && _delay <= 0.0)
             _fall = true;
 	}
 
@@ -48,5 +53,6 @@ public partial class FallingTile : Area2D
         Position = _startPosition;
         _fall = false;
         _currentFallVelocity = 0.0f;
+        _delay = 1.0;
     }
 }
