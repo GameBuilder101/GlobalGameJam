@@ -853,7 +853,7 @@ player = NodePath("../../Player")
 respawnPoint = NodePath("../../Player Respawn Points/Node2D2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Checkpoint Trigger"]
-position = Vector2(25620, 330)
+position = Vector2(-1980, 405)
 shape = SubResource("RectangleShape2D_hhwwe")
 
 [node name="Duck Reveal Trigger" type="Area2D" parent="Triggers"]

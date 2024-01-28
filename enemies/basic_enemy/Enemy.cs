@@ -26,6 +26,7 @@ public partial class Enemy : CharacterBody2D
     [Export]
     private Node2D _movingSprite2;
 	private double _movingSpriteTimer;
+	private bool _sprite2;
     [Export]
 	private Godot.Collections.Array<CollisionShape2D> _collision;
 
@@ -66,10 +67,11 @@ public partial class Enemy : CharacterBody2D
 		_movingSpriteTimer += delta;
 		if (_movingSpriteTimer >= 0.5)
 		{
+			_sprite2 = !_sprite2;
 			if (_movingSprite1 != null)
-				_movingSprite1.Visible = !_movingSprite1.Visible;
+				_movingSprite1.Visible = !_sprite2;
             if (_movingSprite2 != null)
-                _movingSprite2.Visible = !_movingSprite2.Visible;
+                _movingSprite2.Visible = _sprite2;
 			_movingSpriteTimer = 0.0;
         }
 	}

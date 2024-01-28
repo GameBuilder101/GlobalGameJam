@@ -20,6 +20,8 @@ public partial class Duck : Node2D
     private Node2D _chasing;
     [Export]
     private CollisionShape2D _killTrigger;
+    [Export]
+    private AudioStreamPlayer _killAudio;
 
     public override void _Ready()
 	{
@@ -42,6 +44,11 @@ public partial class Duck : Node2D
     {
         if (body is Player)
             Awake();
+    }
+
+    private void _on_kill_trigger_body_entered(Node2D body)
+    {
+        _killAudio.Play();
     }
 
     public void Awake()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dofgpxjlyq7n6"]
+[gd_scene load_steps=9 format=3 uid="uid://dofgpxjlyq7n6"]
 
 [ext_resource type="Script" path="res://enemies/duck/Duck.cs" id="1_1b5ud"]
 [ext_resource type="Texture2D" uid="uid://cl08vpaijwoll" path="res://enemies/duck/duck.png" id="2_6jimc"]
 [ext_resource type="Texture2D" uid="uid://cqnl6dpu3gnun" path="res://enemies/duck/god_himself.png" id="3_fmgje"]
 [ext_resource type="Script" path="res://level/KillTrigger.cs" id="4_yw5sj"]
 [ext_resource type="Resource" uid="uid://dxl3vr2n351ut" path="res://dialogues/duck_death.tres" id="5_pxmcf"]
+[ext_resource type="AudioStream" uid="uid://dvubxv2v2u6yc" path="res://audio/duck_kill.wav" id="6_8ry8v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ltv0"]
 size = Vector2(120, 120)
@@ -12,13 +13,14 @@ size = Vector2(120, 120)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhq3e"]
 size = Vector2(300, 2880)
 
-[node name="Duck" type="Node2D" node_paths=PackedStringArray("_sleepingSprite", "_awakeSprite", "_killTrigger")]
+[node name="Duck" type="Node2D" node_paths=PackedStringArray("_sleepingSprite", "_awakeSprite", "_killTrigger", "_killAudio")]
 script = ExtResource("1_1b5ud")
 _sleepingSprite = NodePath("Sleeping Sprite")
 _awakeSprite = NodePath("Awake Sprite")
 _speed = 450.0
 _rotationSpeed = 4.0
 _killTrigger = NodePath("Kill Trigger/CollisionShape2D")
+_killAudio = NodePath("Kill Audio")
 
 [node name="Sleeping Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_6jimc")
@@ -43,4 +45,8 @@ collision_mask = 2
 position = Vector2(600, 0)
 shape = SubResource("RectangleShape2D_bhq3e")
 
+[node name="Kill Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_8ry8v")
+
+[connection signal="body_entered" from="Kill Trigger" to="." method="_on_kill_trigger_body_entered"]
 [connection signal="body_entered" from="Awake Trigger" to="." method="_on_awake_trigger_body_entered"]
