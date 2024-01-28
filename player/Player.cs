@@ -28,6 +28,11 @@ public partial class Player : CharacterBody2D
 	private DeadParticle body;
 	private int _currentMovingSprite;
 	private double _currentSpriteTimer;
+	
+	[Export]
+	private AudioStreamPlayer DeathSound;
+	[Export]
+	private AudioStreamPlayer JumpSound;
 
 	public bool IsDead { get; private set; }
 	/// <summary>
@@ -104,8 +109,10 @@ public partial class Player : CharacterBody2D
 		// Handle jumping
 		if (Input.IsActionJustPressed("ui_accept") || Input.IsActionJustPressed("ui_up"))
 		{
-			if (IsOnFloor() || _coyoteTimer > 0.0 || !_doubleJumped)
+			if (IsOnFloor() || _coyoteTimer > 0.0 || !_doubleJumped) {
+				this.JumpSound.Play();
 				velocity.Y = jumpVelocity;
+			}
 			if (!(IsOnFloor() || _coyoteTimer > 0.0))
 				_doubleJumped = true;
 		}
@@ -171,6 +178,7 @@ public partial class Player : CharacterBody2D
 		Random rnd = new Random();
 		this.head.Shoot((float) (Math.PI + 2 * (rnd.NextDouble() - 0.5)));
 		this.body.Shoot((float) (Math.PI + 2 * (rnd.NextDouble() - 0.5)));
+		this.DeathSound.Play();
     }
 
 	public void Reset(int newDeathCount)

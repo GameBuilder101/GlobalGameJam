@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ca8tblhg3tw5u"]
+[gd_scene load_steps=12 format=3 uid="uid://ca8tblhg3tw5u"]
 
 [ext_resource type="Script" path="res://player/Player.cs" id="1_c4u3k"]
 [ext_resource type="Texture2D" uid="uid://c6qcguluqak5x" path="res://player/player_0.png" id="2_mm61o"]
@@ -8,11 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://c0tujfu5wajyb" path="res://player/carebear-dead-head.png" id="6_rj5hx"]
 [ext_resource type="Texture2D" uid="uid://dxlciu6aop7vv" path="res://player/carebear-dead-body.png" id="7_bukd4"]
 [ext_resource type="Script" path="res://player/DeadParticle.cs" id="7_o7dwx"]
+[ext_resource type="AudioStream" uid="uid://ponq7ntom040" path="res://audio/Player_Death_SE.mp3" id="9_4kgxs"]
+[ext_resource type="AudioStream" uid="uid://b6hkd1huf7qit" path="res://audio/jump.wav" id="10_irqrf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24e5e"]
 size = Vector2(105, 180)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("idleSprite", "movingSprites", "head", "body", "_goose")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("idleSprite", "movingSprites", "head", "body", "DeathSound", "JumpSound", "_goose")]
 collision_layer = 2
 script = ExtResource("1_c4u3k")
 speed = 800.0
@@ -23,6 +25,8 @@ idleSprite = NodePath("Idle")
 movingSprites = [NodePath("Moving 1"), NodePath("Moving 2"), NodePath("Moving 3"), NodePath("Moving 0")]
 head = NodePath("DeadHead")
 body = NodePath("DeadBody")
+DeathSound = NodePath("DeathSound")
+JumpSound = NodePath("JumpSound")
 _goose = NodePath("Goose")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -77,3 +81,9 @@ position = Vector2(8, -69)
 texture = ExtResource("7_bukd4")
 script = ExtResource("7_o7dwx")
 player = NodePath("..")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_4kgxs")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_irqrf")
