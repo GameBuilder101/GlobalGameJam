@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0q2skjqm3ygv"]
+[gd_scene load_steps=9 format=3 uid="uid://d0q2skjqm3ygv"]
 
 [ext_resource type="Script" path="res://UI/narrator/NarratorTextLabel.cs" id="1_dlqrc"]
 [ext_resource type="FontFile" uid="uid://0kyd81ryl4tf" path="res://UI/comic.ttf" id="1_qmnw1"]
+[ext_resource type="FontFile" uid="uid://clq4nkcyc4vs4" path="res://UI/comicbd.ttf" id="2_scimr"]
 [ext_resource type="Script" path="res://UI/narrator/NarratorAudio.cs" id="2_xwwof"]
+[ext_resource type="FontFile" uid="uid://bm1peuf3qjerg" path="res://UI/comici.ttf" id="3_rcfbk"]
+[ext_resource type="FontFile" uid="uid://bflwh5ax2taia" path="res://UI/comicz.ttf" id="4_cte3u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gnigg"]
 bg_color = Color(0, 0, 0, 0.25098)
@@ -12,7 +15,6 @@ corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
 [sub_resource type="Theme" id="Theme_p7k3d"]
-default_font = ExtResource("1_qmnw1")
 default_font_size = 40
 
 [node name="Ui" type="Node2D"]
@@ -25,7 +27,7 @@ offset_right = 1890.0
 offset_bottom = 150.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_gnigg")
 
-[node name="NarratorText" type="RichTextLabel" parent="Panel" node_paths=PackedStringArray("Background")]
+[node name="NarratorText" type="RichTextLabel" parent="Panel" node_paths=PackedStringArray("Background", "_speechBlipPlayer")]
 custom_minimum_size = Vector2(1800, 0)
 layout_direction = 2
 layout_mode = 0
@@ -35,6 +37,13 @@ offset_right = 1830.0
 offset_bottom = 90.0
 size_flags_vertical = 2
 theme = SubResource("Theme_p7k3d")
+theme_override_colors/default_color = Color(1, 0.870588, 0.890196, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/normal_font = ExtResource("1_qmnw1")
+theme_override_fonts/bold_font = ExtResource("2_scimr")
+theme_override_fonts/italics_font = ExtResource("3_rcfbk")
+theme_override_fonts/bold_italics_font = ExtResource("4_cte3u")
 bbcode_enabled = true
 text = "Narrator text and things"
 fit_content = true
@@ -43,8 +52,10 @@ autowrap_mode = 2
 script = ExtResource("1_dlqrc")
 Background = NodePath("..")
 Delay = 0.03
+_speechBlipPlayer = NodePath("../../NarratorAudio")
 
 [node name="NarratorAudio" type="AudioStreamPlayer" parent="."]
+volume_db = -15.546
 script = ExtResource("2_xwwof")
 
 [connection signal="resized" from="Panel/NarratorText" to="Panel/NarratorText" method="OnResized"]

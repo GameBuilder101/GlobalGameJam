@@ -10,6 +10,10 @@ public partial class NarratorScript : Resource
 	
 	[Export]
 	private AudioStream[] Voices;
+
+	[Export]
+	private AudioStream _speechBlipAudio;
+	public AudioStream SpeechBlipAudio { get; private set; }
 	
 	private int On = 0;
 	
@@ -29,7 +33,7 @@ public partial class NarratorScript : Resource
 	}
 
 	public bool Available() {
-		return NarratorAudio.Self.Playing;
+		return NarratorTextLabel.Self.IsWriting;
 	}
 	
 	
@@ -38,7 +42,7 @@ public partial class NarratorScript : Resource
 			return;
 		}
 		if (this.On < Lines.Length) {
-			NarratorTextLabel.Self.SetText(Lines[this.On]);
+			NarratorTextLabel.Self.SetText(Lines[this.On], _speechBlipAudio);
 		}
 		if (this.On < Voices.Length) {
 			NarratorAudio.Self.Stream = this.Voices[this.On];

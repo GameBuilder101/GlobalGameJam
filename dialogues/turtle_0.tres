@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NarratorScript" load_steps=3 format=3 uid="uid://c0epa3hmyoe0x"]
+
+[ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_88sg1"]
+[ext_resource type="AudioStream" uid="uid://bu7e3j5gou1mg" path="res://audio/narrator_speak.wav" id="1_pqnre"]
+
+[resource]
+script = ExtResource("1_88sg1")
+Lines = PackedStringArray("I strapped some tacks to these turtles, hahaha.")
+Voices = null
+_speechBlipAudio = ExtResource("1_pqnre")

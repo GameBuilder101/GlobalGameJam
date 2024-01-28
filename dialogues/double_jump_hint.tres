@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NarratorScript" load_steps=3 format=3 uid="uid://dg3m87srsek3b"]
+
+[ext_resource type="AudioStream" uid="uid://bu7e3j5gou1mg" path="res://audio/narrator_speak.wav" id="1_7wja4"]
+[ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_8bnqs"]
+
+[resource]
+script = ExtResource("1_8bnqs")
+Lines = PackedStringArray("Sorry, that was mean. Oh, yeah you can double-jump.")
+Voices = null
+_speechBlipAudio = ExtResource("1_7wja4")

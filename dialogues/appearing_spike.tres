@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NarratorScript" load_steps=3 format=3 uid="uid://bkedn3x8kon3d"]
+
+[ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_4ugba"]
+[ext_resource type="AudioStream" uid="uid://burnj2gxrytjj" path="res://audio/narrator_speak_evil.wav" id="1_ctf4o"]
+
+[resource]
+script = ExtResource("1_4ugba")
+Lines = PackedStringArray("[color=#ff1a3c][shake rate=20.0 level=20 connected=1]GET SPIKED![/shake][/color]")
+Voices = null
+_speechBlipAudio = ExtResource("1_ctf4o")

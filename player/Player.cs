@@ -18,7 +18,11 @@ public partial class Player : CharacterBody2D
 	public Node2D respawnPoint;
 
 	[Export]
-	private Sprite2D sprite;
+	private Sprite2D idleSprite;
+	[Export]
+	private Sprite2D[] movingSprites;
+	private int _currentMovingSprite;
+	private double _currentSpriteTimer;
 
 	public bool IsDead { get; private set; }
 	/// <summary>
@@ -63,9 +67,33 @@ public partial class Player : CharacterBody2D
 		// Get the input direction and handle the movement/deceleration
 		float direction = Input.GetAxis("ui_left", "ui_right");
 		if (direction != 0.0f) {
-			this.sprite.FlipH = direction == -1;
-			velocity.X = direction * speed;
+            idleSprite.FlipH = direction < 0.0;
+			foreach (Sprite2D sprite in movingSprites)
+                sprite.FlipH = direction < 0.0;
+
+            _currentSpriteTimer += delta;
+            if (_currentSpriteTimer >= 0.2)
+            {
+                movingSprites[_currentMovingSprite].Hide();
+                _currentMovingSprite++;
+                if (_currentMovingSprite >= movingSprites.Length)
+                    _currentMovingSprite = 0;
+                _currentSpriteTimer = 0.0;
+            }
+
+            if (idleSprite.Visible)
+                idleSprite.Hide();
+            if (!movingSprites[_currentMovingSprite].Visible)
+                movingSprites[_currentMovingSprite].Show();
+
+            velocity.X = direction * speed;
 		} else {
+			if (!idleSprite.Visible)
+				idleSprite.Show();
+            if (movingSprites[_currentMovingSprite].Visible)
+                movingSprites[_currentMovingSprite].Hide();
+            _currentSpriteTimer = 0.0;
+			_currentMovingSprite = 0;
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, speed);
 		}
 

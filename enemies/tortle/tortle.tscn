@@ -10,14 +10,13 @@ size = Vector2(120, 100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4rcs"]
 size = Vector2(100, 20)
 
-[node name="Tortle" type="CharacterBody2D" node_paths=PackedStringArray("_aliveSprite", "_deadSprite", "_collision")]
+[node name="Tortle" type="CharacterBody2D" node_paths=PackedStringArray("_aliveSprite", "_collision")]
 collision_layer = 3
 collision_mask = 3
 floor_stop_on_slope = false
 script = ExtResource("1_vk8ym")
-speed = 0.0
+speed = 160.0
 _aliveSprite = NodePath("Image")
-_deadSprite = NodePath("Image")
 _collision = [NodePath("Player_ground_collision"), NodePath("SpikeBox/CollisionShape2D")]
 
 [node name="Image" type="Sprite2D" parent="."]

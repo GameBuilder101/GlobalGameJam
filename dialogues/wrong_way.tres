@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="NarratorScript" load_steps=2 format=3 uid="uid://b1ki4ohd2epl7"]
+[gd_resource type="Resource" script_class="NarratorScript" load_steps=3 format=3 uid="uid://b1ki4ohd2epl7"]
 
+[ext_resource type="AudioStream" uid="uid://bu7e3j5gou1mg" path="res://audio/narrator_speak.wav" id="1_23sa0"]
 [ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_w5n4e"]
 
 [resource]
 script = ExtResource("1_w5n4e")
-Lines = PackedStringArray("[i]ERR![/i] Wrong way! Try again.")
+Lines = PackedStringArray("[color=#ff1a3c][i]ERR![/i][/color] Wrong way! Try again.")
 Voices = null
+_speechBlipAudio = ExtResource("1_23sa0")

@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="NarratorScript" load_steps=2 format=3 uid="uid://khfdve6vatb5"]
+[gd_resource type="Resource" script_class="NarratorScript" load_steps=3 format=3 uid="uid://khfdve6vatb5"]
 
 [ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_ah7ag"]
+[ext_resource type="AudioStream" uid="uid://bu7e3j5gou1mg" path="res://audio/narrator_speak.wav" id="1_t3v8l"]
 
 [resource]
 script = ExtResource("1_ah7ag")
-Lines = PackedStringArray("Hello Player! Welcome to my game! I, the developer and narrator, shall guide you through my wholesome adventure!")
+Lines = PackedStringArray("Hello Player! Welcome to my game! I, Doug, shall guide you through my wholesome adventure! [i]It\'ll be lots of fun.[/i]")
 Voices = null
+_speechBlipAudio = ExtResource("1_t3v8l")

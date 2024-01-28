@@ -12,12 +12,16 @@ public partial class NarratorTextLabel : RichTextLabel
 	[Export]
 	private double Delay;
 	private double Waiting = 0;
+	public bool IsWriting { get { return Text != TextTotal; } }
 	
 	private String TextTotal = "";
 
 	[Export]
 	private double _clearDelay = 4.0;
 	private double _currentClearTimer = -1.0;
+
+	[Export]
+	private AudioStreamPlayer _speechBlipPlayer;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -65,10 +69,12 @@ public partial class NarratorTextLabel : RichTextLabel
 		this.Waiting -= delta;
 		if (this.Waiting <= 0) {
 			while (this.ProgressText()) { }
+			_speechBlipPlayer.PitchScale = (float)GD.RandRange(0.8, 1.1);
+			_speechBlipPlayer.Play();
 		}
 	}
 	
-	public void SetText(String text) {
+	public void SetText(String text, AudioStream blip) {
         _currentClearTimer = 0.0f;
         this.Text = "";
 		if (text == "") {
@@ -77,7 +83,8 @@ public partial class NarratorTextLabel : RichTextLabel
 			this.Background.Size = new Vector2(this.Size.X, this.Size.Y + 60.0f);
 		}
 		this.TextTotal = text;
-	}
+		_speechBlipPlayer.Stream = blip;
+    }
 	
 	private void OnResized()
 	{

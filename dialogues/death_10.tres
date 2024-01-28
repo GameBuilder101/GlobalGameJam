@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="NarratorScript" load_steps=2 format=3 uid="uid://4w1lva1qdjcx"]
+[gd_resource type="Resource" script_class="NarratorScript" load_steps=3 format=3 uid="uid://4w1lva1qdjcx"]
 
+[ext_resource type="AudioStream" uid="uid://d3srv2wgibii" path="res://audio/narrator_speak_crazy.wav" id="1_3rsey"]
 [ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_yaih2"]
 
 [resource]
 script = ExtResource("1_yaih2")
 Lines = PackedStringArray("Fool. [shake rate=20.0 level=20 connected=1]FOOL!!![/shake]")
 Voices = null
+_speechBlipAudio = ExtResource("1_3rsey")

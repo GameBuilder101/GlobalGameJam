@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="NarratorScript" load_steps=2 format=3 uid="uid://dxl3vr2n351ut"]
+[gd_resource type="Resource" script_class="NarratorScript" load_steps=3 format=3 uid="uid://dxl3vr2n351ut"]
 
+[ext_resource type="AudioStream" uid="uid://d3srv2wgibii" path="res://audio/narrator_speak_crazy.wav" id="1_13yrp"]
 [ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_36u0y"]
 
 [resource]
 script = ExtResource("1_36u0y")
-Lines = PackedStringArray("Fear the duck.")
+Lines = PackedStringArray("[color=#ff1a3c]Fear the duck.[/color]")
 Voices = null
+_speechBlipAudio = ExtResource("1_13yrp")

@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="NarratorScript" load_steps=2 format=3 uid="uid://boh6e7x2opmrm"]
+[gd_resource type="Resource" script_class="NarratorScript" load_steps=3 format=3 uid="uid://boh6e7x2opmrm"]
 
 [ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_exkjs"]
+[ext_resource type="AudioStream" uid="uid://burnj2gxrytjj" path="res://audio/narrator_speak_evil.wav" id="1_nsbt8"]
 
 [resource]
 script = ExtResource("1_exkjs")
-Lines = PackedStringArray("[shake rate=20.0 level=20 connected=1]HAHAHAHA[/shake]")
+Lines = PackedStringArray("[color=#ff1a3c][shake rate=20.0 level=20 connected=1]HAHAHAHA[/shake][/color]")
 Voices = null
+_speechBlipAudio = ExtResource("1_nsbt8")

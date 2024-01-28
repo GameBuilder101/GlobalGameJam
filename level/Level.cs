@@ -39,25 +39,67 @@ public partial class Level : Node2D
 			return;
 		_deathTimer = _deathTimerDuration;
 
-		if (_currentDeathDialogue < deathDialogues.Count && deathDialogues[_currentDeathDialogue] != null)
+		if (_currentDeathDialogue < deathDialogues.Count && !NarratorTextLabel.Self.IsWriting)
 		{
-			deathDialogues[_currentDeathDialogue].Start();
+			if (deathDialogues[_currentDeathDialogue] != null)
+                deathDialogues[_currentDeathDialogue].Start();
 			_currentDeathDialogue++;
 		}
 	}
 	
 	///restarts music
 	private void _on_goofball_march_finished()
-{
+	{
 		GetNode<AudioStreamPlayer>("GoofballMarch").Play();
-}
+	}
 
-	/// <summary>
-	/// Resets the level and any resetables.
-	/// </summary>
-	public void Reset()
+    private void _on_duck_theme_1_finished()
+    {
+        GetNode<AudioStreamPlayer>("DuckTheme1").Play();
+    }
+
+    private void _on_duck_theme_2_finished()
+    {
+        GetNode<AudioStreamPlayer>("DuckTheme2").Play();
+    }
+
+    /// <summary>
+    /// Resets the level and any resetables.
+    /// </summary>
+    public void Reset()
 	{
 		GetTree().CallGroup(ResetableGroup, "Reset", player.DeathCount);
+	}
+
+    public void _on_duck_reveal_trigger_body_entered(Node2D body)
+    {
+        GetNode<AudioStreamPlayer>("DuckReveal").Play();
+    }
+
+    private void _on_checkpoint_trigger_body_entered(Node2D body)
+	{
+        FadeAudioStreamPlayer(GetNode<AudioStreamPlayer>("GoofballMarch"));
+    }
+
+    public void _on_duck_theme_1_trigger_body_entered(Node2D body)
+    {
+		GetNode<AudioStreamPlayer>("DuckTheme1").Play();
+    }
+
+    public void _on_duck_theme_2_trigger_body_entered(Node2D body)
+    {
+        FadeAudioStreamPlayer(GetNode<AudioStreamPlayer>("DuckTheme1"));
+		AudioStreamPlayer p = GetNode<AudioStreamPlayer>("DuckTheme2");
+		p.VolumeDb = -80.0f;
+        Tween tween = CreateTween();
+        tween.TweenProperty(p, "volume_db", -12.0f, 1.0f);
+		p.Play();
+    }
+
+    private void FadeAudioStreamPlayer(AudioStreamPlayer player)
+	{
+		Tween tween = CreateTween();
+		tween.TweenProperty(player, "volume_db", -80.0f, 3.0f);
 	}
 }
 

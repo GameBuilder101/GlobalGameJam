@@ -15,6 +15,8 @@ public partial class Duck : Node2D
     [Export]
     private float _speed = 100.0f;
     [Export]
+    private float _rotationSpeed = 3.0f;
+    [Export]
     private Node2D _chasing;
     [Export]
     private CollisionShape2D _killTrigger;
@@ -32,6 +34,7 @@ public partial class Duck : Node2D
         {
             Position = Position.MoveToward(_chasing.Position, _speed * (float)delta); // Impending doom
             _awakeSprite.Scale = new Vector2(_chasing.Position.X < Position.X ? -1.0f : 1.0f, 1.0f);
+            _awakeSprite.Rotate(_rotationSpeed * (float)delta);
         }
     }
 

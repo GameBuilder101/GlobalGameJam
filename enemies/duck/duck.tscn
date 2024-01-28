@@ -17,6 +17,7 @@ script = ExtResource("1_1b5ud")
 _sleepingSprite = NodePath("Sleeping Sprite")
 _awakeSprite = NodePath("Awake Sprite")
 _speed = 400.0
+_rotationSpeed = 4.0
 _killTrigger = NodePath("Kill Trigger/CollisionShape2D")
 
 [node name="Sleeping Sprite" type="Sprite2D" parent="."]

@@ -61,13 +61,15 @@ public partial class Enemy : CharacterBody2D
 		{
             _movingToMax = false;
             _aliveSprite.Scale = new Vector2(1.0f, _aliveSprite.Scale.Y);
-            _deadSprite.Scale = new Vector2(1.0f, _deadSprite.Scale.Y);
+			if (_deadSprite != null)
+				_deadSprite.Scale = new Vector2(1.0f, _deadSprite.Scale.Y);
         }
 		else if (!_movingToMax && Position.X <= _minWanderPoint.Position.X)
 		{
             _movingToMax = true;
             _aliveSprite.Scale = new Vector2(-1.0f, _aliveSprite.Scale.Y);
-            _deadSprite.Scale = new Vector2(-1.0f, _deadSprite.Scale.Y);
+            if (_deadSprite != null)
+                _deadSprite.Scale = new Vector2(-1.0f, _deadSprite.Scale.Y);
         }
 
 		Vector2 velocity = Velocity;
@@ -85,11 +87,13 @@ public partial class Enemy : CharacterBody2D
 	public void _on_die_trigger_body_entered(Node2D body)
 	{
 		if (body is Player && !((Player)body).IsDead)
+		{
 			Die();
-			Player player = (Player) body;
-			Vector2 velocity = player.Velocity;
-			velocity.Y = 0;
-			player.Velocity = velocity;
+            Player player = (Player)body;
+            Vector2 velocity = player.Velocity;
+            velocity.Y = 0;
+            player.Velocity = velocity;
+        }
 	}
 
 	public void _on_kill_trigger_body_entered(Node2D body)
@@ -118,7 +122,8 @@ public partial class Enemy : CharacterBody2D
 
 		IsDead = false;
 		_aliveSprite.Show();
-		_deadSprite.Hide();
+		if (_deadSprite != null)
+			_deadSprite.Hide();
 
 		SetCollisionEnabled(true);
 

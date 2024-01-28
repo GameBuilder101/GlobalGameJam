@@ -1,24 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca8tblhg3tw5u"]
+[gd_scene load_steps=6 format=3 uid="uid://ca8tblhg3tw5u"]
 
 [ext_resource type="Script" path="res://player/Player.cs" id="1_c4u3k"]
-[ext_resource type="Texture2D" uid="uid://f3g876i4oqsc" path="res://icon.svg" id="2_lfnsa"]
+[ext_resource type="Texture2D" uid="uid://c6qcguluqak5x" path="res://player/player_0.png" id="2_mm61o"]
+[ext_resource type="Texture2D" uid="uid://blhbwguauxhyd" path="res://player/player_1.png" id="3_ekaq6"]
+[ext_resource type="Texture2D" uid="uid://bo5hliq4jefis" path="res://player/player_2.png" id="4_vi16v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24e5e"]
 size = Vector2(105, 180)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("idleSprite", "movingSprites")]
 collision_layer = 2
 script = ExtResource("1_c4u3k")
 speed = 800.0
 jumpVelocity = -1000.0
 coyoteTime = 0.15
 gravity = 2000.0
+idleSprite = NodePath("Idle")
+movingSprites = [NodePath("Moving 1"), NodePath("Moving 2"), NodePath("Moving 3"), NodePath("Moving 0")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -90)
 shape = SubResource("RectangleShape2D_24e5e")
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="Idle" type="Sprite2D" parent="."]
 position = Vector2(0, -89.945)
-scale = Vector2(0.935, 1.405)
-texture = ExtResource("2_lfnsa")
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_mm61o")
+
+[node name="Moving 0" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -89.945)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_mm61o")
+
+[node name="Moving 1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -89.945)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_ekaq6")
+
+[node name="Moving 2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -89.945)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_mm61o")
+
+[node name="Moving 3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -89.945)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("4_vi16v")

@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="NarratorScript" load_steps=2 format=3 uid="uid://c0gepx6genlsu"]
+[gd_resource type="Resource" script_class="NarratorScript" load_steps=3 format=3 uid="uid://c0gepx6genlsu"]
 
+[ext_resource type="AudioStream" uid="uid://bu7e3j5gou1mg" path="res://audio/narrator_speak.wav" id="1_h8qlh"]
 [ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_k8htj"]
 
 [resource]
 script = ExtResource("1_k8htj")
-Lines = PackedStringArray("Hoho! This has been fun so far! I mean, you must be getting real mad right now! Speaking of which, do you like balloons?")
+Lines = PackedStringArray("[wave amp=50.0 freq=5.0 connected=1]Hoho![/wave] This has been fun so far! I mean, you must be getting [i]real[/i] mad right now! Speaking of which, do you like balloons?")
 Voices = null
+_speechBlipAudio = ExtResource("1_h8qlh")

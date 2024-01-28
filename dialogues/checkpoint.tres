@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NarratorScript" load_steps=3 format=3 uid="uid://cchum87vlpqnd"]
+
+[ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_cik43"]
+[ext_resource type="AudioStream" uid="uid://bu7e3j5gou1mg" path="res://audio/narrator_speak.wav" id="1_wwi7q"]
+
+[resource]
+script = ExtResource("1_cik43")
+Lines = PackedStringArray("Okay, I guess you\'ve earned a checkpoint. [color=#ff1a3c][b]Or have you?[/b][/color]")
+Voices = null
+_speechBlipAudio = ExtResource("1_wwi7q")

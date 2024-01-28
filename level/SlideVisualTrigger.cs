@@ -22,7 +22,7 @@ public partial class SlideVisualTrigger : Area2D
 	{
         AddToGroup(Level.ResetableGroup);
         BodyEntered += OnTrigger;
-        _startPosition = slideTarget.Position;
+        _startPosition = slideTarget.GlobalPosition;
     }
 
     public override void _Process(double delta)
@@ -33,7 +33,7 @@ public partial class SlideVisualTrigger : Area2D
             _currentSlideTime += delta;
             if (_currentSlideTime > duration)
                 _currentSlideTime = duration;
-            slideTarget.Position = _startPosition.Lerp(targetPosition.Position, (float)(_currentSlideTime / duration));
+            slideTarget.GlobalPosition = _startPosition.Lerp(targetPosition.GlobalPosition, (float)(_currentSlideTime / duration));
         }
     }
 
@@ -49,6 +49,6 @@ public partial class SlideVisualTrigger : Area2D
         if (!reset)
             return;
         _currentSlideTime = -1.0;
-        slideTarget.Position = _startPosition;
+        slideTarget.GlobalPosition = _startPosition;
     }
 }
