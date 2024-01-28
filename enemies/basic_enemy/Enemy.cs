@@ -58,9 +58,17 @@ public partial class Enemy : CharacterBody2D
 	public override void _PhysicsProcess(double delta)
 	{
 		if (_movingToMax && Position.X >= _maxWanderPoint.Position.X)
-			_movingToMax = false;
+		{
+            _movingToMax = false;
+            _aliveSprite.Scale = new Vector2(1.0f, _aliveSprite.Scale.Y);
+            _deadSprite.Scale = new Vector2(1.0f, _deadSprite.Scale.Y);
+        }
 		else if (!_movingToMax && Position.X <= _minWanderPoint.Position.X)
-			_movingToMax = true;
+		{
+            _movingToMax = true;
+            _aliveSprite.Scale = new Vector2(-1.0f, _aliveSprite.Scale.Y);
+            _deadSprite.Scale = new Vector2(-1.0f, _deadSprite.Scale.Y);
+        }
 
 		Vector2 velocity = Velocity;
 		if (_movingToMax)
@@ -117,7 +125,6 @@ public partial class Enemy : CharacterBody2D
 
 	private void SetCollisionEnabled(bool value)
 	{
-		GD.Print(value);
 		// Stupid stinky ugly meanie code deferred disable is cring
 		foreach (CollisionShape2D collision in _collision)
 			collision.SetDeferred("disabled", !value);

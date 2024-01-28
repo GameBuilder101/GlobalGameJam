@@ -6,4 +6,30 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>GlobalGameJam</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="enemies\duck\duck.png" />
+    <Content Include="enemies\duck\god_himself.png" />
+    <Content Include="title_screen\ADD TITLE SCREEN STUFF HERE LOL.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dialogues\death_0.tres" />
+    <None Include="dialogues\death_1.tres" />
+    <None Include="dialogues\death_10.tres" />
+    <None Include="dialogues\death_2.tres" />
+    <None Include="dialogues\death_3.tres" />
+    <None Include="dialogues\death_4.tres" />
+    <None Include="dialogues\death_5.tres" />
+    <None Include="dialogues\death_6.tres" />
+    <None Include="dialogues\death_7.tres" />
+    <None Include="dialogues\death_8.tres" />
+    <None Include="dialogues\death_9.tres" />
+    <None Include="dialogues\duck_death.tres" />
+    <None Include="dialogues\falling_blocks.tres" />
+    <None Include="dialogues\falling_ceiling.tres" />
+    <None Include="dialogues\jump_input.tres" />
+    <None Include="dialogues\spawn.tres" />
+    <None Include="dialogues\wrong_way.tres" />
+    <None Include="enemies\duck\duck.png.import" />
+    <None Include="enemies\duck\god_himself.png.import" />
+  </ItemGroup>
 </Project>

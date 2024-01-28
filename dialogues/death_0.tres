@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_xg3p4")
-Lines = PackedStringArray("Oops! Watch out for pits and spikes! They kill you.")
+Lines = PackedStringArray("Ouch.")
 Voices = null

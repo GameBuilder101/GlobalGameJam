@@ -18,6 +18,7 @@ public partial class Level : Node2D
 	public override void _Ready()
 	{
 		base._Ready();
+		GetNode<AudioStreamPlayer>("GoofballMarch").Play();
 		player.Death += StartDeathTimer;
 	}
 
@@ -44,6 +45,12 @@ public partial class Level : Node2D
 			_currentDeathDialogue++;
 		}
 	}
+	
+	///restarts music
+	private void _on_goofball_march_finished()
+{
+		GetNode<AudioStreamPlayer>("GoofballMarch").Play();
+}
 
 	/// <summary>
 	/// Resets the level and any resetables.
@@ -53,3 +60,5 @@ public partial class Level : Node2D
 		GetTree().CallGroup(ResetableGroup, "Reset", player.DeathCount);
 	}
 }
+
+

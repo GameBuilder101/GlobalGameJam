@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="NarratorScript" load_steps=2 format=3 uid="uid://dsyyta1bkelki"]
+
+[ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_r8nkr"]
+
+[resource]
+script = ExtResource("1_r8nkr")
+Lines = PackedStringArray("Oh, you don\'t need a checkpoint yet. You\'re doing [i]fiiiine...[/i]")
+Voices = null
