@@ -1,20 +1,31 @@
-[gd_scene load_steps=38 format=3 uid="uid://2b3skik47boy"]
+[gd_scene load_steps=49 format=3 uid="uid://2b3skik47boy"]
 
 [ext_resource type="TileSet" uid="uid://bb5l2myi71tee" path="res://level/tile_set.tres" id="1_5l28f"]
 [ext_resource type="Script" path="res://level/Level.cs" id="1_mpqb3"]
 [ext_resource type="PackedScene" uid="uid://ca8tblhg3tw5u" path="res://player/player.tscn" id="2_an21l"]
+[ext_resource type="Resource" uid="uid://7owxu4r6opom" path="res://dialogues/death_0.tres" id="2_ovq7f"]
 [ext_resource type="PackedScene" uid="uid://d0q2skjqm3ygv" path="res://UI/UI.tscn" id="2_qcoqm"]
+[ext_resource type="Resource" uid="uid://dvmmo62uialnm" path="res://dialogues/death_1.tres" id="3_bu06v"]
 [ext_resource type="Script" path="res://level/Camera.cs" id="3_ro6ko"]
 [ext_resource type="Texture2D" uid="uid://it4pscxgnhby" path="res://player/carebear copy.png" id="3_sioet"]
+[ext_resource type="Resource" uid="uid://bqhowcngjw5lk" path="res://dialogues/death_2.tres" id="4_mcghf"]
+[ext_resource type="Resource" uid="uid://cgfl44odutbw0" path="res://dialogues/death_3.tres" id="5_jqx5x"]
 [ext_resource type="PackedScene" path="res://obstacles/Spike.tscn" id="5_ms5fr"]
 [ext_resource type="Script" path="res://level/KillTrigger.cs" id="5_rxcub"]
 [ext_resource type="PackedScene" path="res://obstacles/falling_tile.tscn" id="6_0i5uw"]
 [ext_resource type="PackedScene" uid="uid://bbyoyqsgm76b3" path="res://enemies/basic_enemy/basic_enemy.tscn" id="6_mer51"]
+[ext_resource type="Resource" uid="uid://bp0hbl1p2bqt" path="res://dialogues/death_4.tres" id="6_oqgno"]
+[ext_resource type="Resource" uid="uid://dlmxgsgldicvo" path="res://dialogues/death_5.tres" id="7_ehlli"]
 [ext_resource type="Texture2D" uid="uid://d043rx4cvx875" path="res://level/arrow.png" id="7_l6dye"]
 [ext_resource type="Script" path="res://level/SpawnTrigger.cs" id="8_3o3d2"]
+[ext_resource type="Resource" uid="uid://bfjv55l2tgg70" path="res://dialogues/death_6.tres" id="8_vbhxt"]
+[ext_resource type="Resource" uid="uid://bxt4c2fpsx0ao" path="res://dialogues/death_7.tres" id="9_exhy4"]
+[ext_resource type="Resource" uid="uid://cpqe42jlyp6b4" path="res://dialogues/death_8.tres" id="10_nidkn"]
 [ext_resource type="Resource" uid="uid://n5xtx41rtcjx" path="res://dialogues/falling_ceiling.tres" id="11_2rfsy"]
+[ext_resource type="Resource" uid="uid://boh6e7x2opmrm" path="res://dialogues/death_9.tres" id="11_jpm56"]
 [ext_resource type="Script" path="res://level/NarratorDialogueTrigger.cs" id="11_ux0dh"]
 [ext_resource type="PackedScene" uid="uid://ch2d8wcs61tok" path="res://obstacles/falling_ceiling.tscn" id="12_4hcsf"]
+[ext_resource type="Resource" uid="uid://4w1lva1qdjcx" path="res://dialogues/death_10.tres" id="12_6d30b"]
 [ext_resource type="Resource" uid="uid://khfdve6vatb5" path="res://dialogues/spawn.tres" id="18_rj6d4"]
 [ext_resource type="Texture2D" uid="uid://beedptjgpjxp2" path="res://level/checkpoint.png" id="19_0ilsk"]
 [ext_resource type="Resource" uid="uid://b3nduxhklrttm" path="res://dialogues/jump_input.tres" id="19_fnetc"]
@@ -31,7 +42,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lprav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0ofj"]
-size = Vector2(60, 300)
+size = Vector2(60, 72)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqjs3"]
 size = Vector2(360, 600)
@@ -60,6 +71,7 @@ size = Vector2(720, 900)
 [node name="Level" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_mpqb3")
 player = NodePath("Player")
+deathDialogues = Array[Object]([ExtResource("2_ovq7f"), null, ExtResource("3_bu06v"), null, ExtResource("4_mcghf"), null, ExtResource("5_jqx5x"), null, ExtResource("6_oqgno"), null, ExtResource("7_ehlli"), null, ExtResource("8_vbhxt"), null, ExtResource("9_exhy4"), ExtResource("10_nidkn"), ExtResource("11_jpm56"), null, ExtResource("12_6d30b")])
 
 [node name="Player" parent="." node_paths=PackedStringArray("respawnPoint", "sprite") instance=ExtResource("2_an21l")]
 position = Vector2(-4620, 840)
@@ -260,7 +272,7 @@ script = ExtResource("8_3o3d2")
 spawnObjects = [NodePath("Spike")]
 
 [node name="Collision" type="CollisionShape2D" parent="Triggers/Spawn Spike"]
-position = Vector2(5460, 660)
+position = Vector2(5460, 774)
 shape = SubResource("RectangleShape2D_w0ofj")
 
 [node name="Spike" parent="Triggers/Spawn Spike" instance=ExtResource("5_ms5fr")]
