@@ -94,15 +94,15 @@ theme_override_font_sizes/font_size = 100
 text = "Doug's Game"
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(1281, 748)
+position = Vector2(1281, 742.5)
 scale = Vector2(2.38, 1.875)
 texture = ExtResource("6_j0h2b")
 
 [node name="QuitButton" type="Button" parent="."]
 offset_left = 995.0
-offset_top = 638.0
+offset_top = 628.0
 offset_right = 1562.0
-offset_bottom = 857.0
+offset_bottom = 847.0
 theme_override_fonts/font = ExtResource("2_pwyi2")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tuwfr")
