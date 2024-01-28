@@ -1,15 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dot833yibxmlq"]
+[gd_scene load_steps=5 format=3 uid="uid://dot833yibxmlq"]
 
 [ext_resource type="PackedScene" uid="uid://d0q2skjqm3ygv" path="res://UI/UI.tscn" id="1_jqjkg"]
 [ext_resource type="Script" path="res://UI/narrator/test_narrator_scripts/TestScript.cs" id="2_mm3q5"]
-[ext_resource type="AudioStream" uid="uid://cafqdj6e1dgtr" path="res://UI/narrator/test_narrator_scripts/screeching.mp3" id="3_hlr7j"]
-[ext_resource type="AudioStream" uid="uid://flp047pspciw" path="res://UI/narrator/test_narrator_scripts/not_screeching.mp3" id="4_eqfug"]
 [ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="5_u5y5w"]
 
 [sub_resource type="Resource" id="Resource_j0d2c"]
 script = ExtResource("5_u5y5w")
 Lines = PackedStringArray("screeching away, I don\'t know what to say I\'ll say I\'ll screech it anyway, in this Minecraft world, so beautiful.", "damn, imagine screeching, couldn\'t be me.  This Minecraft world is not beautiful.")
-Voices = Array[AudioStream]([ExtResource("3_hlr7j"), ExtResource("4_eqfug")])
 
 [node name="TestNarratorScripts" type="Node2D"]
 
