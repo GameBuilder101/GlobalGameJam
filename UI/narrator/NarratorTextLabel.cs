@@ -23,6 +23,8 @@ public partial class NarratorTextLabel : RichTextLabel
 	[Export]
 	private AudioStreamPlayer _speechBlipPlayer;
 	
+	public NarratorScript OnScript = null;
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -60,6 +62,7 @@ public partial class NarratorTextLabel : RichTextLabel
 				_currentClearTimer = -1.0;
 				Text = "";
 				TextTotal = "";
+				OnScript.Next();
 				OnResized();
 
             }
