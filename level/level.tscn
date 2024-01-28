@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://2b3skik47boy"]
+[gd_scene load_steps=38 format=3 uid="uid://2b3skik47boy"]
 
 [ext_resource type="TileSet" uid="uid://bb5l2myi71tee" path="res://level/tile_set.tres" id="1_5l28f"]
 [ext_resource type="Script" path="res://level/Level.cs" id="1_mpqb3"]
@@ -15,7 +15,11 @@
 [ext_resource type="Resource" uid="uid://n5xtx41rtcjx" path="res://dialogues/falling_ceiling.tres" id="11_2rfsy"]
 [ext_resource type="Script" path="res://level/NarratorDialogueTrigger.cs" id="11_ux0dh"]
 [ext_resource type="PackedScene" uid="uid://ch2d8wcs61tok" path="res://obstacles/falling_ceiling.tscn" id="12_4hcsf"]
+[ext_resource type="Resource" uid="uid://khfdve6vatb5" path="res://dialogues/spawn.tres" id="18_rj6d4"]
 [ext_resource type="Texture2D" uid="uid://beedptjgpjxp2" path="res://level/checkpoint.png" id="19_0ilsk"]
+[ext_resource type="Resource" uid="uid://b3nduxhklrttm" path="res://dialogues/jump_input.tres" id="19_fnetc"]
+[ext_resource type="Resource" uid="uid://bqa267unh41e6" path="res://dialogues/falling_blocks.tres" id="20_v7flp"]
+[ext_resource type="Resource" uid="uid://b1ki4ohd2epl7" path="res://dialogues/wrong_way.tres" id="21_u2mgc"]
 [ext_resource type="Script" path="res://level/SlideVisualTrigger.cs" id="26_ys276"]
 [ext_resource type="Texture2D" uid="uid://djc65byrd7wk2" path="res://level/background_0.png" id="31_2gm68"]
 [ext_resource type="Texture2D" uid="uid://r7a5ecty28hf" path="res://level/background_1.png" id="32_x0kcd"]
@@ -307,6 +311,7 @@ position = Vector2(10980, -1440)
 [node name="ND Spawn" type="Area2D" parent="Triggers"]
 collision_mask = 2
 script = ExtResource("11_ux0dh")
+dialogue = ExtResource("18_rj6d4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/ND Spawn"]
 position = Vector2(-4620, 660)
@@ -315,6 +320,7 @@ shape = SubResource("RectangleShape2D_78gp6")
 [node name="ND Jump Input" type="Area2D" parent="Triggers"]
 collision_mask = 2
 script = ExtResource("11_ux0dh")
+dialogue = ExtResource("19_fnetc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/ND Jump Input"]
 position = Vector2(240, 420)
@@ -323,6 +329,7 @@ shape = SubResource("RectangleShape2D_50fll")
 [node name="ND Falling Blocks" type="Area2D" parent="Triggers"]
 collision_mask = 2
 script = ExtResource("11_ux0dh")
+dialogue = ExtResource("20_v7flp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/ND Falling Blocks"]
 position = Vector2(3120, 930)
@@ -331,6 +338,7 @@ shape = SubResource("RectangleShape2D_fclxh")
 [node name="ND Wrong Way" type="Area2D" parent="Triggers"]
 collision_mask = 2
 script = ExtResource("11_ux0dh")
+dialogue = ExtResource("21_u2mgc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/ND Wrong Way"]
 position = Vector2(9060, 660)
