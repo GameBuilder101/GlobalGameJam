@@ -18,7 +18,7 @@ _collision = [NodePath("KillArea/CollisionShape2D"), NodePath("DeathArea/DeathCo
 speed = 600.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -97.46)
+position = Vector2(0, 90)
 texture = ExtResource("2_tqy81")
 
 [node name="KillArea" type="Area2D" parent="."]
@@ -33,6 +33,7 @@ shape = SubResource("RectangleShape2D_6u75o")
 disabled = true
 
 [node name="DeathArea" type="Area2D" parent="."]
+position = Vector2(0, 187.46)
 
 [node name="DeathCollision" type="CollisionShape2D" parent="DeathArea"]
 shape = SubResource("RectangleShape2D_xcupr")

@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://ca8tblhg3tw5u"]
+[gd_scene load_steps=7 format=3 uid="uid://ca8tblhg3tw5u"]
 
 [ext_resource type="Script" path="res://player/Player.cs" id="1_c4u3k"]
 [ext_resource type="Texture2D" uid="uid://c6qcguluqak5x" path="res://player/player_0.png" id="2_mm61o"]
 [ext_resource type="Texture2D" uid="uid://blhbwguauxhyd" path="res://player/player_1.png" id="3_ekaq6"]
 [ext_resource type="Texture2D" uid="uid://bo5hliq4jefis" path="res://player/player_2.png" id="4_vi16v"]
+[ext_resource type="Texture2D" uid="uid://bidx44ax1qqte" path="res://obstacles/goose.png" id="5_n2rld"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24e5e"]
 size = Vector2(105, 180)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("idleSprite", "movingSprites")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("idleSprite", "movingSprites", "_goose")]
 collision_layer = 2
 script = ExtResource("1_c4u3k")
 speed = 800.0
@@ -17,6 +18,7 @@ coyoteTime = 0.15
 gravity = 2000.0
 idleSprite = NodePath("Idle")
 movingSprites = [NodePath("Moving 1"), NodePath("Moving 2"), NodePath("Moving 3"), NodePath("Moving 0")]
+_goose = NodePath("Goose")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -90)
@@ -50,3 +52,8 @@ visible = false
 position = Vector2(0, -89.945)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("4_vi16v")
+
+[node name="Goose" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2400, -90)
+texture = ExtResource("5_n2rld")

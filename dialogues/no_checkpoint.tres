@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="NarratorScript" load_steps=3 format=3 uid="uid://dsyyta1bkelki"]
 
 [ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_r8nkr"]
-[ext_resource type="AudioStream" uid="uid://cvlq56njf2pa" path="res://audio/narrator_speak.wav" id="1_tbc1x"]
+[ext_resource type="AudioStream" uid="uid://bu7e3j5gou1mg" path="res://audio/narrator_speak.wav" id="1_tbc1x"]
 
 [resource]
 script = ExtResource("1_r8nkr")
