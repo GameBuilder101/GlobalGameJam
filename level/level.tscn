@@ -1,13 +1,14 @@
-[gd_scene load_steps=33 format=3 uid="uid://2b3skik47boy"]
+[gd_scene load_steps=34 format=3 uid="uid://2b3skik47boy"]
 
 [ext_resource type="TileSet" uid="uid://bb5l2myi71tee" path="res://level/tile_set.tres" id="1_5l28f"]
 [ext_resource type="Script" path="res://level/Level.cs" id="1_mpqb3"]
 [ext_resource type="PackedScene" uid="uid://ca8tblhg3tw5u" path="res://player/player.tscn" id="2_an21l"]
 [ext_resource type="PackedScene" uid="uid://d0q2skjqm3ygv" path="res://UI/UI.tscn" id="2_qcoqm"]
 [ext_resource type="Script" path="res://level/Camera.cs" id="3_ro6ko"]
-[ext_resource type="PackedScene" path="res://obstacles/Spike.tscn" id="5_ms5fr"]
+[ext_resource type="Texture2D" uid="uid://it4pscxgnhby" path="res://player/carebear copy.png" id="3_sioet"]
+[ext_resource type="PackedScene" uid="uid://dlb5w33rqpxbs" path="res://obstacles/Spike.tscn" id="5_ms5fr"]
 [ext_resource type="Script" path="res://level/KillTrigger.cs" id="5_rxcub"]
-[ext_resource type="PackedScene" path="res://obstacles/falling_tile.tscn" id="6_0i5uw"]
+[ext_resource type="PackedScene" uid="uid://dtuy5vskpyg3l" path="res://obstacles/falling_tile.tscn" id="6_0i5uw"]
 [ext_resource type="PackedScene" uid="uid://bbyoyqsgm76b3" path="res://enemies/basic_enemy/basic_enemy.tscn" id="6_mer51"]
 [ext_resource type="Texture2D" uid="uid://d043rx4cvx875" path="res://level/arrow.png" id="7_l6dye"]
 [ext_resource type="Script" path="res://level/SpawnTrigger.cs" id="8_3o3d2"]
@@ -59,6 +60,15 @@ player = NodePath("Player")
 [node name="Player" parent="." node_paths=PackedStringArray("respawnPoint") instance=ExtResource("2_an21l")]
 position = Vector2(-4620, 840)
 respawnPoint = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" parent="Player" index="0"]
+position = Vector2(5, -109.5)
+
+[node name="Icon" parent="Player" index="1"]
+z_index = 1
+position = Vector2(0, -114)
+scale = Vector2(1, 1)
+texture = ExtResource("3_sioet")
 
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("_player")]
 position = Vector2(-4620, 660)
