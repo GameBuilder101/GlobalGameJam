@@ -86,6 +86,10 @@ public partial class Enemy : CharacterBody2D
 	{
 		if (body is Player && !((Player)body).IsDead)
 			Die();
+			Player player = (Player) body;
+			Vector2 velocity = player.Velocity;
+			velocity.Y = 0;
+			player.Velocity = velocity;
 	}
 
 	public void _on_kill_trigger_body_entered(Node2D body)
