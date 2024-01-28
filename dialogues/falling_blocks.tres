@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="NarratorScript" load_steps=3 format=3 uid="uid://bqa267unh41e6"]
 
-[ext_resource type="AudioStream" uid="uid://cvlq56njf2pa" path="res://audio/narrator_speak.wav" id="1_jk0a4"]
+[ext_resource type="AudioStream" uid="uid://bu7e3j5gou1mg" path="res://audio/narrator_speak.wav" id="1_jk0a4"]
 [ext_resource type="Script" path="res://UI/narrator/NarratorScript.cs" id="1_uol6c"]
 
 [resource]

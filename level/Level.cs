@@ -55,7 +55,7 @@ public partial class Level : Node2D
 
     private void _on_duck_theme_1_finished()
     {
-        GetNode<AudioStreamPlayer>("DuckTheme1").Play();
+        GetNode<AudioStreamPlayer>("DuckTheme2").Play();
     }
 
     private void _on_duck_theme_2_finished()
@@ -88,12 +88,7 @@ public partial class Level : Node2D
 
     public void _on_duck_theme_2_trigger_body_entered(Node2D body)
     {
-        FadeAudioStreamPlayer(GetNode<AudioStreamPlayer>("DuckTheme1"));
-		AudioStreamPlayer p = GetNode<AudioStreamPlayer>("DuckTheme2");
-		p.VolumeDb = -80.0f;
-        Tween tween = CreateTween();
-        tween.TweenProperty(p, "volume_db", -12.0f, 1.0f);
-		p.Play();
+        FadeAudioStreamPlayer(GetNode<AudioStreamPlayer>("DuckTheme2"));
     }
 
     private void FadeAudioStreamPlayer(AudioStreamPlayer player)

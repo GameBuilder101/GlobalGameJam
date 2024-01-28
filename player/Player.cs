@@ -34,13 +34,47 @@ public partial class Player : CharacterBody2D
 	[Signal]
 	public delegate void DeathEventHandler();
 
-	public override void _Ready()
+	/// <summary>
+	/// Goose.
+	/// </summary>
+	[Export]
+	private Sprite2D _goose;
+    /// <summary>
+    /// Goose.
+    /// </summary>
+    [Export]
+	private double _gooseDuration = 1.5;
+	/// <summary>
+	/// Goose.
+	/// </summary>
+	private double _currentGooseTime = -1.0;
+    /// <summary>
+    /// Goose.
+    /// </summary>
+    private bool _gotGoosed;
+
+    public override void _Ready()
 	{
 		base._Ready();
 		AddToGroup(Level.ResetableGroup);
 	}
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
 
-	public override void _PhysicsProcess(double delta)
+		if (_currentGooseTime >= 0.0)
+		{
+			_currentGooseTime += delta;
+			_goose.Position = new Vector2(90.0f, 0.0f).Lerp(new Vector2(-90.0f, 0.0f), (float)(_currentGooseTime / _gooseDuration));
+			if (_currentGooseTime / _gooseDuration >= 0.5 && !_gotGoosed) // Get goosed
+			{
+				_gotGoosed = true;
+                DieEffects();
+            }
+		}
+    }
+
+    public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
 
@@ -113,11 +147,16 @@ public partial class Player : CharacterBody2D
 	{
 		if (IsDead || _resetDelay > 0.0)
 			return;
-		IsDead = true;
-		Velocity = Vector2.Zero;
-		Hide();
+		DieEffects();
 		EmitSignal(SignalName.Death);
 	}
+
+	private void DieEffects()
+	{
+        IsDead = true;
+        Velocity = Vector2.Zero;
+        Hide();
+    }
 
 	public void Reset(int newDeathCount)
 	{
@@ -125,5 +164,15 @@ public partial class Player : CharacterBody2D
 		Show();
 		IsDead = false;
 		_resetDelay = 1.0;
+	}
+
+    /// <summary>
+    /// Goose.
+    /// </summary>
+    /// <returns>Goose.</returns>
+    public void Goose() // Goose
+    {
+		_currentGooseTime = 0.0;
+		_goose.Show();
 	}
 }

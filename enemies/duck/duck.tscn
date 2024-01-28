@@ -16,7 +16,7 @@ size = Vector2(300, 2880)
 script = ExtResource("1_1b5ud")
 _sleepingSprite = NodePath("Sleeping Sprite")
 _awakeSprite = NodePath("Awake Sprite")
-_speed = 400.0
+_speed = 450.0
 _rotationSpeed = 4.0
 _killTrigger = NodePath("Kill Trigger/CollisionShape2D")
 
@@ -40,7 +40,7 @@ disabled = true
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Awake Trigger"]
-position = Vector2(330, 0)
+position = Vector2(600, 0)
 shape = SubResource("RectangleShape2D_bhq3e")
 
 [connection signal="body_entered" from="Awake Trigger" to="." method="_on_awake_trigger_body_entered"]
