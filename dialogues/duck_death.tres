@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_36u0y")
-Lines = PackedStringArray("[color=#ff1a3c]Fear the duck.[/color]")
+Lines = PackedStringArray("[color=#ff1a3c]Getting tired?[/color]")
 Voices = null
 _speechBlipAudio = ExtResource("1_13yrp")

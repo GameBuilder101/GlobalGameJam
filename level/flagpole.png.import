@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6rjkbqjmt7t"
-path="res://.godot/imported/tortle.png-a4458552d8b561fd040df0d5dd1d8169.ctex"
+uid="uid://c23pgqaklsayv"
+path="res://.godot/imported/flagpole.png-41e29d3056ce8e686e6d797d79337e68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/tortle/tortle.png"
-dest_files=["res://.godot/imported/tortle.png-a4458552d8b561fd040df0d5dd1d8169.ctex"]
+source_file="res://level/flagpole.png"
+dest_files=["res://.godot/imported/flagpole.png-41e29d3056ce8e686e6d797d79337e68.ctex"]
 
 [params]
 

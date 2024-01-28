@@ -21,7 +21,7 @@ public partial class SpawnTrigger : Area2D
         DespawnObjects();
     }
 
-	private void OnTrigger(Node2D body)
+    private void OnTrigger(Node2D body)
 	{
 		if (_triggered || !(body is Player))
 			return;
@@ -38,7 +38,7 @@ public partial class SpawnTrigger : Area2D
 		if (!reset)
 			return;
 		_triggered = false;
-		DespawnObjects();
+        DespawnObjects();
     }
 
 	private void DespawnObjects()
