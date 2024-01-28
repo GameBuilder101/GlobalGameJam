@@ -18,7 +18,7 @@ public partial class GooseTrigger : Area2D
 	private double _currentDelay = -1.0;
 	private double _dialogueStartDelay = 3.0;
 	private bool _displayedDialogue;
-	private double _endDelay = 20.0;
+	private double _endDelay = 28.0;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

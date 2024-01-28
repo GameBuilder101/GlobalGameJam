@@ -952,7 +952,7 @@ shape = SubResource("RectangleShape2D_hhwwe")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Triggers/Goose Trigger"]
 stream = ExtResource("54_c72f6")
-volume_db = -6.969
+volume_db = 0.776
 
 [node name="Player Respawn Points" type="Node2D" parent="."]
 
@@ -1230,11 +1230,11 @@ volume_db = -12.866
 
 [node name="DuckTheme1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("48_8ibj2")
-volume_db = -11.969
+volume_db = -9.289
 
 [node name="DuckTheme2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("49_figs6")
-volume_db = -11.969
+volume_db = -9.289
 
 [node name="CheckpointSlide" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("60_msivi")
